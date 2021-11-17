@@ -29,23 +29,29 @@ public class BasicInfoPage {
     @FindBy(id = "basicInfoGender-button")
     public WebElement gender;
 
+    @FindBy(xpath = "//div[@class='ui-selectmenu-menu ui-front ui-selectmenu-open']")
+    public WebElement listOfGenders;
+
     @FindBy(id = "basicInfoMob-button")
-    public WebElement MonthOB;
+    public WebElement monthOB;
 
     @FindBy(id = "basicInfoDob-button")
-    public WebElement DateOB;
+    public WebElement dateOB;
 
     @FindBy(id = "basicInfoYob-button")
-    public WebElement YearOB;
+    public WebElement yearOB;
 
     @FindBy(id = "basicInfoTravelerNo")
-    public WebElement TravelNo;
+    public WebElement travelNo;
 
     @FindBy(id = "basicInfoRedress")
-    public WebElement RedressNo;
+    public WebElement redressNo;
+
+    @FindBy(id ="childEnrollChkBox")
+    public  WebElement legalGuardian;
 
     @FindBy(id = "bOwnerChkBox-1")
-    public WebElement BusinessOwnerCheckButton;
+    public WebElement businessOwnerCheckButton;
 
 
 

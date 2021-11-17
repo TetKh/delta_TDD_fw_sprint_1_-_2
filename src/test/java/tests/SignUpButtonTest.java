@@ -8,7 +8,6 @@ import utilities.Driver;
 public class SignUpButtonTest extends TestBase{
 
 
-    SingUpButtonPage singUpButtonPage;
 
 
 @Test
