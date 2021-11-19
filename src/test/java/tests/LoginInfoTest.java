@@ -54,6 +54,7 @@ public class LoginInfoTest extends TestBase {
         new SignUpButtonTest().SingUpButtonTest();
         new LogInInfoPage().scrollWindow();
         new LogInInfoPage().question1.click();
+        new LogInInfoPage().question1.sendKeys(Keys.DOWN,Keys.DOWN,Keys.ENTER);
 
   //String str = new LogInInfoPage().chooseFirstQuestion.getText();
 //    Select select = new Select(new LogInInfoPage().question1);
@@ -63,17 +64,17 @@ public class LoginInfoTest extends TestBase {
 //    Actions actions = new Actions(Driver.getDriver());
 //    actions.sendKeys(new LogInInfoPage().chooseFirstQuestion, Keys.ENTER).build().perform();
 
-        new LogInInfoPage().answer1.sendKeys("Brown");
+        new LogInInfoPage().answer1.sendKeys(ConfigReader.getProperty("answer#1"));
     }
     @Test
     public void verifySecondQuestionDropDown() {
 
         new SignUpButtonTest().SingUpButtonTest();
         new LogInInfoPage().scrollWindow();
-        new LogInInfoPage().question2.click();
+        new LogInInfoPage().question2.sendKeys(Keys.DOWN,Keys.DOWN,Keys.DOWN,Keys.DOWN,Keys.ENTER);
 
         //still need to select question
-        new LogInInfoPage().answer2.sendKeys("depend on the question");
+        new LogInInfoPage().answer2.sendKeys(ConfigReader.getProperty("answer#2"));
 
     }
 
