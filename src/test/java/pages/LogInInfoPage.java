@@ -51,12 +51,13 @@ public class LogInInfoPage {
     @FindBy(xpath= "//a[@id='pwdToolTip']")
     public WebElement questionMark;
 
-
+@Test
     public void correctInformation(){
         userName.sendKeys(ConfigReader.getProperty("username"));
         password.sendKeys(ConfigReader.getProperty("password"));
         confirmPassword.sendKeys(ConfigReader.getProperty("password"));
     }
+    @Test
     public void ExistingInformation(){
         userName.sendKeys(ConfigReader.getProperty("username1"));
         password.sendKeys(ConfigReader.getProperty("password"));

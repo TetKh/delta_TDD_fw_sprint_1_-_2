@@ -10,7 +10,7 @@ import pages.LogInInfoPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-public class LoginInfo extends TestBase {
+public class LoginInfoTest extends TestBase {
 
 
     @Test
