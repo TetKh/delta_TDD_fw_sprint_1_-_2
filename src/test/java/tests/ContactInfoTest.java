@@ -1,12 +1,14 @@
 package tests;
 
 import com.github.javafaker.Faker;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.BasicInfoPage;
 import pages.ContactInfoPage;
+import pages.LogInInfoPage;
 import utilities.SeleniumUtils;
 
 import java.util.List;
@@ -23,6 +25,8 @@ public class ContactInfoTest extends TestBase{
     public void verifyCountryRegionDropDown() {
         new SignUpButtonTest().SingUpButtonTest();
         new ContactInfoPage().countryRegion.click();
+        new ContactInfoPage().countryRegion.sendKeys(Keys.DOWN,Keys.ENTER);//I still need to figure out
+        //how to grab the text, so we can write the assert test - Magda
 
     }
 
@@ -30,12 +34,14 @@ public class ContactInfoTest extends TestBase{
         public void verifyAddressTypeDropDown() {
             new SignUpButtonTest().SingUpButtonTest();
             new ContactInfoPage().addressType.click();
+            new ContactInfoPage().addressType.sendKeys(Keys.DOWN,Keys.ENTER);//Magda
 
         }
 
     @Test
     public void verifyAddressCredentials(){
 
+        new ContactInfoPage().scrollWindow(); // I added the js.executeScript, so the window can move down
         String email = faker.funnyName().name();
         new SignUpButtonTest().SingUpButtonTest();
         Faker faker = new Faker();
