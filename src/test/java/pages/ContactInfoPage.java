@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -50,5 +51,10 @@ public class ContactInfoPage {
     @FindBy(id = "basicInfoTravelerNo")
     public WebElement travelNo;
 
+    public void scrollWindow(){
+
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,500)", "");
+    }
 
 }
