@@ -13,7 +13,7 @@ public class LanguagePreferencePage {
     }
 
 
-    @FindBy(id=" language-button")
+    @FindBy(id="language-button")
     public WebElement selectLanguage;
 
 

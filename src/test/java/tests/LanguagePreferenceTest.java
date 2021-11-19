@@ -13,8 +13,8 @@ public class LanguagePreferenceTest extends TestBase{
     public  void verifySelectLanguageDropDown(){
         new SignUpButtonTest().SingUpButtonTest();
         new LanguagePreferencePage().scrollWindow();
-      //  new LanguagePreferencePage().selectLanguage.sendKeys(Keys.DOWN,Keys.ENTER);
-        new LanguagePreferencePage().selectLanguage.click();
+        new LanguagePreferencePage().selectLanguage.sendKeys(Keys.DOWN,Keys.ENTER);
+       // new LanguagePreferencePage().selectLanguage.click();
     }
 
 
