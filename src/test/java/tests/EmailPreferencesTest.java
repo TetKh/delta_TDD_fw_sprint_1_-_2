@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import pages.EmailPreferencesPage;
 import utilities.SeleniumUtils;
 
-public class EmailPreferencesTest {
+public class EmailPreferencesTest extends TestBase{
 
     SignUpButtonTest signUpButtonTest;
 

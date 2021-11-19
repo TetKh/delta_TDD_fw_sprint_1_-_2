@@ -78,23 +78,16 @@ SignUpButtonTest signUpButtonTest;
 
 
     @Test
-    public void verifyDOBValidCredentials(){
-   new SignUpButtonTest().SingUpButtonTest();
+    public void verifyDOBdropDownMenu() {
+        new SignUpButtonTest().SingUpButtonTest();
 
-       new BasicInfoPage().monthOB.click();
-        new BasicInfoPage().dateOB.click();
-        new BasicInfoPage().yearOB.click();
-
-
-    }
-    @Test
-    public void verifyDOBInValidCredentials(){
-      new SignUpButtonTest().SingUpButtonTest();
         new BasicInfoPage().monthOB.click();
         new BasicInfoPage().dateOB.click();
         new BasicInfoPage().yearOB.click();
-        //assert
     }
+
+
+
 
     @Test
     public void ValidKnownTravelerNumber(){
@@ -108,7 +101,7 @@ SignUpButtonTest signUpButtonTest;
 
     @Test
     public void InValidKnownTravelerNumber(){
-       new SignUpButtonTest().SingUpButtonTest();
+        new SignUpButtonTest().SingUpButtonTest();
       new BasicInfoPage().travelNo.sendKeys(ConfigReader.getProperty("invalidKnownTravelerNumber"));
 
         // assert?
@@ -135,7 +128,6 @@ SignUpButtonTest signUpButtonTest;
     @Test
     public void LegalGuardianChkBox(){
       new SignUpButtonTest().SingUpButtonTest();
-      //if (new BasicInfoPage().yearOB <)
        new BasicInfoPage().legalGuardian.click();
 
         // assert?

@@ -14,7 +14,7 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 
-public class ContactInfoTest {
+public class ContactInfoTest extends TestBase{
 
     ContactInfoPage contactInfoPage;
     Faker faker;
