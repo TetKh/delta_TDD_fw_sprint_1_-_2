@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -51,10 +52,35 @@ public class LogInInfoPage {
     @FindBy(xpath= "//a[@id='pwdToolTip']")
     public WebElement questionMark;
 
-@Test
+    @FindBy(xpath= "//a[@id='usrNmtooltip']")
+    public WebElement questionMarkUser;
+
+
+    @FindBy(xpath= "//div[@id='aToolTip']//div[@class='tooltipContent']")
+    public WebElement questionMarkTest;
+
+
+    @FindBy(xpath = "//div[@class='passwordRules passwordRulesLeft']")
+    public WebElement question;
+
+    @FindBy(xpath = "//label[@class='floLeft errIcon']")
+    public WebElement invalidLogInfoMessage;
+
+    @FindBy(xpath = "//label[@id='requiredEqualTo-error']")
+    public WebElement invalidConfirmPasswordMessage;
+    //span[@id='basicInfoQuestionId1-button'][.='What is the name of your first pet?']
+
+    @FindBy(xpath = "//span[@id='basicInfoQuestionId1-button'][.='What is the name of your first pet?']")
+    public WebElement questionOneSelection;
+
+    @FindBy(xpath = "//span[@id='basicInfoQuestionId2-button']")
+    public WebElement questionSecondSelection;
+
+    @Test
     public void correctInformation(){
         userName.sendKeys(ConfigReader.getProperty("username"));
         password.sendKeys(ConfigReader.getProperty("password"));
+        //confirmPassword.sendKeys(ConfigReader.getProperty("password"), Keys.ENTER);
         confirmPassword.sendKeys(ConfigReader.getProperty("password"));
     }
     @Test
@@ -65,12 +91,18 @@ public class LogInInfoPage {
     }
    @Test
     public void incorrectInformation(){
-        userName.sendKeys(ConfigReader.getProperty("invalidPassword"));
-        password.sendKeys(ConfigReader.getProperty("invalidUsername"));
-        confirmPassword.sendKeys(ConfigReader.getProperty("invalidUsername"));
+        userName.sendKeys(ConfigReader.getProperty("invalidUsername"));
+        password.sendKeys(ConfigReader.getProperty("invalidPassword"));
+        confirmPassword.sendKeys(ConfigReader.getProperty("invalidPassword"));
     }
 
-public void scrollWindow(){
+    public void invalidConfirmPassword(){
+        userName.sendKeys(ConfigReader.getProperty("username"));
+        password.sendKeys(ConfigReader.getProperty("password"));
+        confirmPassword.sendKeys(ConfigReader.getProperty("invalidPassword"),Keys.ENTER);
+
+    }
+     public void scrollWindow(){
 
     JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
     js.executeScript("window.scrollBy(0,700)", "");

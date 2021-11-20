@@ -10,8 +10,13 @@ import pages.LogInInfoPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class LoginInfoTest extends TestBase {
 
+    //String pageSource = Driver.getDriver().getPageSource();
 
     @Test
     public void enterValidCredentials() throws InterruptedException {
@@ -19,10 +24,12 @@ public class LoginInfoTest extends TestBase {
         new SignUpButtonTest().SingUpButtonTest();
         new LogInInfoPage().scrollWindow();
         new LogInInfoPage().correctInformation();
-//        Thread.sleep(1000);
-//        String pageSource = Driver.getDriver().getCurrentUrl();
-//        Assert.assertTrue(pageSource.contains(new LogInInfoPage().checkmarks1.getText()));
-//        Assert.assertTrue(pageSource.contains(new LogInInfoPage().checkmarks2.getText()));
+        String pageSource = Driver.getDriver().getPageSource();
+        String markOne = new LogInInfoPage().checkmarks1.getText();
+        //String markTwo = new LogInInfoPage().checkmarks2.getText();
+        //List<String> elements = new ArrayList<>(Arrays.asList(markOne,markTwo));
+        //for (String element : elements)
+            Assert.assertTrue(pageSource.contains(markOne));
  }
 
     @Test
@@ -31,12 +38,9 @@ public class LoginInfoTest extends TestBase {
         new SignUpButtonTest().SingUpButtonTest();
         new LogInInfoPage().scrollWindow();
         new LogInInfoPage().ExistingInformation();
-        String pageSource = Driver.getDriver().getCurrentUrl();
-        String expected = "Whoops! A unique username is required for each account.";
-        //System.out.println(new LogInInfoPage().warning.getText());
-      //  Assert.assertTrue(pageSource.contains(new LogInInfoPage().warning.getText()));
-        //Assert.assertEquals(new LogInInfoPage().warning.getText(),expected);
-
+        String onTheWeb =  new LogInInfoPage().warning.getText();
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(onTheWeb));
     }
 
     @Test
@@ -45,7 +49,20 @@ public class LoginInfoTest extends TestBase {
         new SignUpButtonTest().SingUpButtonTest();
         new LogInInfoPage().scrollWindow();
         new LogInInfoPage().incorrectInformation();
+        String pageSource = Driver.getDriver().getPageSource();
+        String inValidMessage = new LogInInfoPage().invalidLogInfoMessage.getText();
+        Assert.assertTrue(pageSource.contains(inValidMessage));
+    }
 
+    @Test
+    public void enterInvalidConfirmPassword(){
+
+        new SignUpButtonTest().SingUpButtonTest();
+        new LogInInfoPage().scrollWindow();
+        new LogInInfoPage().invalidConfirmPassword();
+        String pageSource = Driver.getDriver().getPageSource();
+        String inValidConPassMessage = new LogInInfoPage().invalidConfirmPasswordMessage.getText();
+        Assert.assertTrue(pageSource.contains(inValidConPassMessage));
     }
 
     @Test
@@ -56,13 +73,11 @@ public class LoginInfoTest extends TestBase {
         new LogInInfoPage().question1.click();
         new LogInInfoPage().question1.sendKeys(Keys.DOWN,Keys.DOWN,Keys.ENTER);
 
-  //String str = new LogInInfoPage().chooseFirstQuestion.getText();
-//    Select select = new Select(new LogInInfoPage().question1);
-//    select.selectByVisibleText(str);
-  //System.out.println(str);
+        String selectQuestionOne =  new LogInInfoPage().questionOneSelection.getText();
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(selectQuestionOne));
+        //System.out.println(selectQuestionOne);
 
-//    Actions actions = new Actions(Driver.getDriver());
-//    actions.sendKeys(new LogInInfoPage().chooseFirstQuestion, Keys.ENTER).build().perform();
 
         new LogInInfoPage().answer1.sendKeys(ConfigReader.getProperty("answer#1"));
     }
@@ -73,16 +88,23 @@ public class LoginInfoTest extends TestBase {
         new LogInInfoPage().scrollWindow();
         new LogInInfoPage().question2.sendKeys(Keys.DOWN,Keys.DOWN,Keys.DOWN,Keys.DOWN,Keys.ENTER);
 
-        //still need to select question
+        String selectQuestionTwo =  new LogInInfoPage().questionSecondSelection.getText();
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(selectQuestionTwo));
+        //System.out.println(selectQuestionTwo);
         new LogInInfoPage().answer2.sendKeys(ConfigReader.getProperty("answer#2"));
-
     }
 
     @Test
-    public void checkQuestionMark() {
+    public void checkQuestionMarkUser() {
         new SignUpButtonTest().SingUpButtonTest();
         new LogInInfoPage().scrollWindow();
-        new LogInInfoPage().questionMark.click();
+        new LogInInfoPage().questionMarkUser.click();
+        String pageSource = Driver.getDriver().getPageSource();
+        List<String> elements = new ArrayList<>(Arrays.asList("Must contain","At least 6 characters","At least 1 letter",
+        "Cannot contain","Username already in use","Email address","Special characters"));
+        for(String element : elements)
+        Assert.assertTrue(pageSource.contains(element));
     }
 
 }
