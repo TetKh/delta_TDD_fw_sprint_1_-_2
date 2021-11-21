@@ -26,7 +26,7 @@ public class BasicInfoTest extends TestBase{
     public void verifyPrefixDropDown(){
         new SignUpButtonTest().SingUpButtonTest();
         new BasicInfoPage().prefix.sendKeys(Keys.DOWN,Keys.DOWN,Keys.DOWN,Keys.DOWN);
-          String prefix =  new BasicInfoPage().prefix.getText();
+        String prefix =  new BasicInfoPage().prefix.getText();
         String pageSource = Driver.getDriver().getPageSource();
         Assert.assertTrue(pageSource.contains(prefix));
 
@@ -36,10 +36,10 @@ public class BasicInfoTest extends TestBase{
     @Test(groups={"regressionTest"})
     public void validFullNameCredentials(){
        new SignUpButtonTest().SingUpButtonTest();
-      new BasicInfoPage().validCredentials();
-    String lastName =  new BasicInfoPage().lastName.getText();
-    String pageSource = Driver.getDriver().getPageSource();
-    Assert.assertTrue(pageSource.contains(lastName));
+       new BasicInfoPage().validCredentials();
+       String lastName =  new BasicInfoPage().lastName.getText();
+       String pageSource = Driver.getDriver().getPageSource();
+       Assert.assertTrue(pageSource.contains(lastName));
 
 
     }
@@ -55,20 +55,20 @@ public class BasicInfoTest extends TestBase{
 
     @Test(groups={"regressionTest"})
     public void verifySuffixDropDown(){
-      new SignUpButtonTest().SingUpButtonTest();
-     new BasicInfoPage().suffix.sendKeys(Keys.DOWN,Keys.DOWN,Keys.DOWN);
-        String suffix =  new BasicInfoPage().suffix.getText();
-        String pageSource = Driver.getDriver().getPageSource();
-        Assert.assertTrue(pageSource.contains(suffix));
+       new SignUpButtonTest().SingUpButtonTest();
+       new BasicInfoPage().suffix.sendKeys(Keys.DOWN,Keys.DOWN,Keys.DOWN);
+       String suffix =  new BasicInfoPage().suffix.getText();
+       String pageSource = Driver.getDriver().getPageSource();
+       Assert.assertTrue(pageSource.contains(suffix));
 
     }
     @Test(groups={"regressionTest"})
     public void verifyGenderDropDown(){
-     new SignUpButtonTest().SingUpButtonTest();
-     new BasicInfoPage().gender.sendKeys(Keys.DOWN, Keys.DOWN,Keys.ENTER);
-        String gender =  new BasicInfoPage().gender.getText();
-        String pageSource = Driver.getDriver().getPageSource();
-        Assert.assertTrue(pageSource.contains(gender));
+       new SignUpButtonTest().SingUpButtonTest();
+       new BasicInfoPage().gender.sendKeys(Keys.DOWN, Keys.DOWN,Keys.ENTER);
+       String gender =  new BasicInfoPage().gender.getText();
+       String pageSource = Driver.getDriver().getPageSource();
+       Assert.assertTrue(pageSource.contains(gender));
         }
 
 
@@ -98,24 +98,24 @@ public class BasicInfoTest extends TestBase{
     public void validKnownTravelerNumber(){
        new SignUpButtonTest().SingUpButtonTest();
        new BasicInfoPage().travelNo.sendKeys(ConfigReader.getProperty("KnownTravelerNumber"));
-        String travelerNumber=  new BasicInfoPage().travelNo.getText();
-        String pageSource = Driver.getDriver().getPageSource();
-        Assert.assertTrue(pageSource.contains(travelerNumber));
+       String travelerNumber=  new BasicInfoPage().travelNo.getText();
+       String pageSource = Driver.getDriver().getPageSource();
+       Assert.assertTrue(pageSource.contains(travelerNumber));
 
 
     }
     @Test(groups={"regressionTest"})
     public void invalidKnownTravelerNumber(){
         new SignUpButtonTest().SingUpButtonTest();
-      new BasicInfoPage().travelNo.sendKeys(ConfigReader.getProperty("invalidKnownTravelerNumber"));
+        new BasicInfoPage().travelNo.sendKeys(ConfigReader.getProperty("invalidKnownTravelerNumber"));
         String invalidTravelNo=  new BasicInfoPage().invalidTravelNo.getText();
         String pageSource = Driver.getDriver().getPageSource();
         Assert.assertTrue(pageSource.contains(invalidTravelNo));
     }
     @Test(groups={"regressionTest"})
     public void validRedRessNumber(){
-    new SignUpButtonTest().SingUpButtonTest();
-    new BasicInfoPage().redressNo.sendKeys(ConfigReader.getProperty("RedRessNumber"));
+        new SignUpButtonTest().SingUpButtonTest();
+        new BasicInfoPage().redressNo.sendKeys(ConfigReader.getProperty("RedRessNumber"));
         String redRessNo=  new BasicInfoPage().redressNo.getText();
         String pageSource = Driver.getDriver().getPageSource();
         Assert.assertTrue(pageSource.contains(redRessNo));
@@ -134,10 +134,9 @@ public class BasicInfoTest extends TestBase{
 
     @Test(groups={"regressionTest"})
     public void verifyBusinessOwnerChkBox(){
-     new SignUpButtonTest().SingUpButtonTest();
+       new SignUpButtonTest().SingUpButtonTest();
        new BasicInfoPage().businessOwnerCheckButton.click();
-
-        Assert.assertTrue(new BasicInfoPage().businessOwnerCheckButton.isSelected());
+       Assert.assertTrue(new BasicInfoPage().businessOwnerCheckButton.isSelected());
 
 
     }
