@@ -14,7 +14,7 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 
-public class ContactInfoTest {
+public class ContactInfoTest extends TestBase{
 
     ContactInfoPage contactInfoPage;
     Faker faker;
@@ -36,7 +36,7 @@ public class ContactInfoTest {
     @Test
     public void verifyAddressCredentials(){
 
-        String email = faker.funnyName().name();
+        String email = faker.funnyName().name() + "@gmail.com";
         new SignUpButtonTest().SingUpButtonTest();
         Faker faker = new Faker();
         new ContactInfoPage().addressLine1.sendKeys(faker.address().streetAddress());

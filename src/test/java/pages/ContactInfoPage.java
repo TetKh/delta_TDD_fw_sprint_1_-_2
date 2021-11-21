@@ -3,9 +3,10 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import tests.TestBase;
 import utilities.Driver;
 
-public class ContactInfoPage {
+public class ContactInfoPage extends TestBase {
 
     public ContactInfoPage(){
         PageFactory.initElements(Driver.getDriver(), this);
