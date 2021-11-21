@@ -11,7 +11,8 @@ public class SignUpButtonTest extends TestBase{
 
 
 
-   @Test
+
+    @Test(groups={"smokeTest"})
     public void SingUpButtonTest() {
 
      new SingUpButtonPage().SignUpButton.click();

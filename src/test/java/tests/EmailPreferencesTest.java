@@ -10,8 +10,7 @@ public class EmailPreferencesTest extends TestBase{
     // Magda please take a look on this method
 
     //button is selected , but assert says ist false
-
-    @Test
+    @Test(groups={"regressionTest"})
     public void verifyEmailPreferenceSelectButton(){
 
       new SignUpButtonTest().SingUpButtonTest();

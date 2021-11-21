@@ -21,7 +21,7 @@ public class ContactInfoTest extends TestBase{
     ContactInfoPage contactInfoPage;
     Faker faker;
 
-    @Test
+    @Test(groups={"regressionTest"})
     public void verifyCountryRegionDropDown() {
         new SignUpButtonTest().SingUpButtonTest();
         new ContactInfoPage().countryRegion.click();
@@ -30,8 +30,7 @@ public class ContactInfoTest extends TestBase{
         //how to grab the text, so we can write the assert test - Magda
 
     }
-
-        @Test
+    @Test(groups={"regressionTest"})
         public void verifyAddressTypeDropDown() {
             new SignUpButtonTest().SingUpButtonTest();
             new ContactInfoPage().addressType.click();
@@ -39,7 +38,7 @@ public class ContactInfoTest extends TestBase{
 
         }
 
-    @Test
+    @Test(groups={"regressionTest"})
     public void verifyAddressCredentials(){
 
         new ContactInfoPage().scrollWindow(); // I added the js.executeScript, so the window can move down
@@ -57,8 +56,7 @@ public class ContactInfoTest extends TestBase{
 
 
     }
-
-            @Test
+    @Test(groups={"regressionTest"})
             public void verifyStateProvinceDropDown() {
                 new SignUpButtonTest().SingUpButtonTest();
                 new ContactInfoPage().stateProvince.click();
@@ -74,7 +72,7 @@ public class ContactInfoTest extends TestBase{
 //        //assert
 //    }
 
-    @Test
+    @Test(groups={"regressionTest"})
     public void verifyCountryRegionCodeDropDown(){
         new SignUpButtonTest().SingUpButtonTest();
         new ContactInfoPage().countryRegionCode.click();

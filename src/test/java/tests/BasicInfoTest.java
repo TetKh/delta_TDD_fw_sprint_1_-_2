@@ -22,7 +22,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class BasicInfoTest extends TestBase{
 
 
-    @Test
+    @Test(groups={"regressionTest"})
     public void verifyPrefixDropDown(){
         new SignUpButtonTest().SingUpButtonTest();
         new BasicInfoPage().prefix.sendKeys(Keys.DOWN,Keys.DOWN,Keys.DOWN,Keys.DOWN);
@@ -33,7 +33,7 @@ public class BasicInfoTest extends TestBase{
 
 
     }
-@Test
+    @Test(groups={"regressionTest"})
     public void validFullNameCredentials(){
        new SignUpButtonTest().SingUpButtonTest();
       new BasicInfoPage().validCredentials();
@@ -43,7 +43,7 @@ public class BasicInfoTest extends TestBase{
 
 
     }
-@Test
+    @Test(groups={"regressionTest"})
     public void invalidFullNameCredentials(){
        new SignUpButtonTest().SingUpButtonTest();
        new BasicInfoPage().inValidCredentials();
@@ -53,7 +53,7 @@ public class BasicInfoTest extends TestBase{
 
     }
 
-    @Test
+    @Test(groups={"regressionTest"})
     public void verifySuffixDropDown(){
       new SignUpButtonTest().SingUpButtonTest();
      new BasicInfoPage().suffix.sendKeys(Keys.DOWN,Keys.DOWN,Keys.DOWN);
@@ -62,8 +62,7 @@ public class BasicInfoTest extends TestBase{
         Assert.assertTrue(pageSource.contains(suffix));
 
     }
-
-    @Test
+    @Test(groups={"regressionTest"})
     public void verifyGenderDropDown(){
      new SignUpButtonTest().SingUpButtonTest();
      new BasicInfoPage().gender.sendKeys(Keys.DOWN, Keys.DOWN,Keys.ENTER);
@@ -73,10 +72,7 @@ public class BasicInfoTest extends TestBase{
         }
 
 
-
-
-
-    @Test
+    @Test(groups={"regressionTest"})
     public void validDOBinfo() {
         new SignUpButtonTest().SingUpButtonTest();
         new BasicInfoPage().validDOB();
@@ -87,8 +83,7 @@ public class BasicInfoTest extends TestBase{
 
 
     }
-
-    @Test
+    @Test(groups={"regressionTest"})
     public void invalidDOBinfo() {
         new SignUpButtonTest().SingUpButtonTest();
         new BasicInfoPage().inValidDOB();
@@ -99,9 +94,7 @@ public class BasicInfoTest extends TestBase{
     }
 
 
-
-
-    @Test
+    @Test(groups={"regressionTest"})
     public void validKnownTravelerNumber(){
        new SignUpButtonTest().SingUpButtonTest();
        new BasicInfoPage().travelNo.sendKeys(ConfigReader.getProperty("KnownTravelerNumber"));
@@ -111,8 +104,7 @@ public class BasicInfoTest extends TestBase{
 
 
     }
-
-    @Test
+    @Test(groups={"regressionTest"})
     public void invalidKnownTravelerNumber(){
         new SignUpButtonTest().SingUpButtonTest();
       new BasicInfoPage().travelNo.sendKeys(ConfigReader.getProperty("invalidKnownTravelerNumber"));
@@ -120,7 +112,7 @@ public class BasicInfoTest extends TestBase{
         String pageSource = Driver.getDriver().getPageSource();
         Assert.assertTrue(pageSource.contains(invalidTravelNo));
     }
-    @Test
+    @Test(groups={"regressionTest"})
     public void validRedRessNumber(){
     new SignUpButtonTest().SingUpButtonTest();
     new BasicInfoPage().redressNo.sendKeys(ConfigReader.getProperty("RedRessNumber"));
@@ -129,7 +121,7 @@ public class BasicInfoTest extends TestBase{
         Assert.assertTrue(pageSource.contains(redRessNo));
 
     }
-    @Test
+    @Test(groups={"regressionTest"})
     public void invalidRedRessNumber(){
         new SignUpButtonTest().SingUpButtonTest();
         new BasicInfoPage().redressNo.sendKeys(ConfigReader.getProperty("invalidRedRessNumber"));
@@ -140,8 +132,7 @@ public class BasicInfoTest extends TestBase{
 
     }
 
-
-    @Test
+    @Test(groups={"regressionTest"})
     public void verifyBusinessOwnerChkBox(){
      new SignUpButtonTest().SingUpButtonTest();
        new BasicInfoPage().businessOwnerCheckButton.click();

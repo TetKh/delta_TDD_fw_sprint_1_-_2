@@ -54,8 +54,7 @@ public class LoginInfoTest extends TestBase {
         String inValidMessage = new LogInInfoPage().invalidLogInfoMessage.getText();
         Assert.assertTrue(pageSource.contains(inValidMessage));
     }
-
-    @Test
+    @Test(groups={"regressionTest"})
     public void enterInvalidConfirmPassword(){
 
         new SignUpButtonTest().SingUpButtonTest();
@@ -66,7 +65,7 @@ public class LoginInfoTest extends TestBase {
         Assert.assertTrue(pageSource.contains(inValidConPassMessage));
     }
 
-    @Test
+    @Test(groups={"regressionTest"})
     public void verifyFirstQuestionDropDown(){
 
         new SignUpButtonTest().SingUpButtonTest();
@@ -82,7 +81,7 @@ public class LoginInfoTest extends TestBase {
 
         new LogInInfoPage().answer1.sendKeys(ConfigReader.getProperty("answer#1"));
     }
-    @Test
+    @Test(groups={"regressionTest"})
     public void verifySecondQuestionDropDown() {
 
         new SignUpButtonTest().SingUpButtonTest();
@@ -96,7 +95,7 @@ public class LoginInfoTest extends TestBase {
         new LogInInfoPage().answer2.sendKeys(ConfigReader.getProperty("answer#2"));
     }
 
-    @Test
+    @Test(groups={"regressionTest"})
     public void checkQuestionMarkUser() {
         new SignUpButtonTest().SingUpButtonTest();
         new LogInInfoPage().scrollWindow();

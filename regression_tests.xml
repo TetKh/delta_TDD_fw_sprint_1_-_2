@@ -3,14 +3,11 @@
 <suite name="Regression Tests">
 <!--test represents subcategory/collection of tests under a suite e.g UI tests, API tests, DB tests -->
     <test name="UI Tests">
-
-<!--          regression suite -->
-        <packages>
-            <package name=".*"/>
-        </packages>
-
-
-
+        <groups>
+            <run>
+                <include name=""/>
+            </run>
+        </groups>
     </test>
 
 
