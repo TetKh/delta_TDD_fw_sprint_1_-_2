@@ -32,7 +32,6 @@ public class ContactInfoTest extends TestBase{
        String pageSource = Driver.getDriver().getPageSource();
        Assert.assertTrue(pageSource.contains(answer));
 
-
     }
     @Test(groups={"regressionTest"})
         public void verifyAddressTypeDropDown() {
@@ -62,7 +61,6 @@ public class ContactInfoTest extends TestBase{
         new ContactInfoPage().phoneNo.sendKeys(faker.phoneNumber().phoneNumber());
         new ContactInfoPage().email.sendKeys(faker.funnyName().name());
         new ContactInfoPage().confirmEmail.sendKeys(faker.funnyName().name());
-
 
     }
     @Test(groups={"regressionTest"})
