@@ -10,13 +10,13 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.BasicInfoPage;
+import pages.LogInInfoPage;
 import utilities.ConfigReader;
+import utilities.Driver;
 import utilities.SeleniumUtils;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class BasicInfoTest extends TestBase{
@@ -25,40 +25,41 @@ public class BasicInfoTest extends TestBase{
     @Test
     public void verifyPrefixDropDown(){
         new SignUpButtonTest().SingUpButtonTest();
-       new BasicInfoPage().prefix.sendKeys("Mrs");
+        new BasicInfoPage().prefix.sendKeys(Keys.DOWN,Keys.DOWN,Keys.DOWN,Keys.DOWN);
+          String prefix =  new BasicInfoPage().prefix.getText();
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(prefix));
 
-       // assert?
+
 
     }
 @Test
     public void validFullNameCredentials(){
        new SignUpButtonTest().SingUpButtonTest();
-       new BasicInfoPage().firstName.sendKeys(ConfigReader.getProperty("firstName"),Keys.TAB,
-               ConfigReader.getProperty("middleName"),Keys.TAB,
-               ConfigReader.getProperty("lastName"));
+      new BasicInfoPage().validCredentials();
+    String lastName =  new BasicInfoPage().lastName.getText();
+    String pageSource = Driver.getDriver().getPageSource();
+    Assert.assertTrue(pageSource.contains(lastName));
+
 
     }
 @Test
     public void invalidFullNameCredentials(){
        new SignUpButtonTest().SingUpButtonTest();
-
-    new BasicInfoPage().firstName.sendKeys(ConfigReader.getProperty("invalidFirstName"),Keys.TAB,
-            ConfigReader.getProperty("invalidMiddleName"),Keys.TAB,
-            ConfigReader.getProperty(""));
-
-   // Assert.assertEquals(faker.address().fullAddress(), new BasicInfoPage().firstName);
-   // Assert.assertEquals(faker.phoneNumber().extension(), new BasicInfoPage().middleName);
-   // Assert.assertEquals(faker.slackEmoji().celebration(), new BasicInfoPage().lastName);
+       new BasicInfoPage().inValidCredentials();
+       String invalidName = new BasicInfoPage().invalidName.getText();
+       String pageSource = Driver.getDriver().getPageSource();
+       Assert.assertTrue(pageSource.contains(invalidName));
 
     }
 
     @Test
     public void verifySuffixDropDown(){
       new SignUpButtonTest().SingUpButtonTest();
-     new BasicInfoPage().suffix.sendKeys("Jr");
-
-
-        // assert?
+     new BasicInfoPage().suffix.sendKeys(Keys.DOWN,Keys.DOWN,Keys.DOWN);
+        String suffix =  new BasicInfoPage().suffix.getText();
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(suffix));
 
     }
 
@@ -66,9 +67,9 @@ public class BasicInfoTest extends TestBase{
     public void verifyGenderDropDown(){
      new SignUpButtonTest().SingUpButtonTest();
      new BasicInfoPage().gender.sendKeys(Keys.DOWN, Keys.DOWN,Keys.ENTER);
-
-
-        // assert
+        String gender =  new BasicInfoPage().gender.getText();
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(gender));
         }
 
 
@@ -78,19 +79,23 @@ public class BasicInfoTest extends TestBase{
     @Test
     public void validDOBinfo() {
         new SignUpButtonTest().SingUpButtonTest();
+        new BasicInfoPage().validDOB();
+        String dob =  new BasicInfoPage().monthOB.getText();
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(dob));
 
-        new BasicInfoPage().monthOB.sendKeys(Keys.DOWN, Keys.DOWN, Keys.DOWN,Keys.ENTER);
-        new BasicInfoPage().dateOB.sendKeys(Keys.DOWN, Keys.DOWN,Keys.ENTER);
-        new BasicInfoPage().yearOB.sendKeys("2000");
+
+
     }
 
     @Test
     public void invalidDOBinfo() {
         new SignUpButtonTest().SingUpButtonTest();
+        new BasicInfoPage().inValidDOB();
+        String BirthDayWarning =  new BasicInfoPage().monthOB.getText();
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(BirthDayWarning));
 
-        new BasicInfoPage().monthOB.sendKeys(Keys.ENTER);
-        new BasicInfoPage().dateOB.sendKeys(Keys.ENTER);
-        new BasicInfoPage().yearOB.sendKeys(Keys.ENTER);
     }
 
 
@@ -99,10 +104,11 @@ public class BasicInfoTest extends TestBase{
     @Test
     public void validKnownTravelerNumber(){
        new SignUpButtonTest().SingUpButtonTest();
-     new BasicInfoPage().travelNo.sendKeys(ConfigReader.getProperty("KnownTravelerNumber"));
+       new BasicInfoPage().travelNo.sendKeys(ConfigReader.getProperty("KnownTravelerNumber"));
+        String travelerNumber=  new BasicInfoPage().travelNo.getText();
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(travelerNumber));
 
-
-        // assert?
 
     }
 
@@ -110,35 +116,31 @@ public class BasicInfoTest extends TestBase{
     public void invalidKnownTravelerNumber(){
         new SignUpButtonTest().SingUpButtonTest();
       new BasicInfoPage().travelNo.sendKeys(ConfigReader.getProperty("invalidKnownTravelerNumber"));
-
-        // assert?
-
+        String invalidTravelNo=  new BasicInfoPage().invalidTravelNo.getText();
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(invalidTravelNo));
     }
     @Test
     public void validRedRessNumber(){
     new SignUpButtonTest().SingUpButtonTest();
     new BasicInfoPage().redressNo.sendKeys(ConfigReader.getProperty("RedRessNumber"));
-
-        // assert?
+        String redRessNo=  new BasicInfoPage().redressNo.getText();
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(redRessNo));
 
     }
     @Test
     public void invalidRedRessNumber(){
         new SignUpButtonTest().SingUpButtonTest();
         new BasicInfoPage().redressNo.sendKeys(ConfigReader.getProperty("invalidRedRessNumber"));
+        String invalidRedRessNo=  new BasicInfoPage().invalidRedressNo.getText();
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(invalidRedRessNo));
 
-        // assert?
 
     }
 
-    //@Test
-   // public void LegalGuardianChkBox(){
-    //  new SignUpButtonTest().SingUpButtonTest();
-     //  new BasicInfoPage().legalGuardian.click();
 
-        // assert?
-
-   // }
     @Test
     public void verifyBusinessOwnerChkBox(){
      new SignUpButtonTest().SingUpButtonTest();

@@ -25,7 +25,8 @@ public class ContactInfoTest extends TestBase{
     public void verifyCountryRegionDropDown() {
         new SignUpButtonTest().SingUpButtonTest();
         new ContactInfoPage().countryRegion.click();
-        new ContactInfoPage().countryRegion.sendKeys(Keys.DOWN,Keys.ENTER);//I still need to figure out
+        new ContactInfoPage().countryRegion.sendKeys(Keys.DOWN,Keys.ENTER);
+        //I still need to figure out
         //how to grab the text, so we can write the assert test - Magda
 
     }

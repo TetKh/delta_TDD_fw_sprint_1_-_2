@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeMethod;
 import utilities.ConfigReader;
 import utilities.Driver;
 
+
 import java.time.Duration;
 
 public class TestBase {

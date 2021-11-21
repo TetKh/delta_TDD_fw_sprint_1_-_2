@@ -7,7 +7,9 @@ import utilities.SeleniumUtils;
 
 public class EmailPreferencesTest extends TestBase{
 
-    SignUpButtonTest signUpButtonTest;
+    // Magda please take a look on this method
+
+    //button is selected , but assert says ist false
 
     @Test
     public void verifyEmailPreferenceSelectButton(){
@@ -15,7 +17,6 @@ public class EmailPreferencesTest extends TestBase{
       new SignUpButtonTest().SingUpButtonTest();
       new EmailPreferencesPage().emailPreferenceSelectButton.click();
         SeleniumUtils.waitFor(10);
-
-      //  Assert.assertTrue(  new EmailPreferencesPage().emailPreferenceSelectButton.isSelected());
+        Assert.assertTrue(  new EmailPreferencesPage().emailPreferenceSelectButton.isSelected());
     }
 }
