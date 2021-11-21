@@ -75,7 +75,7 @@ public class ContactInfoTest extends TestBase{
     @Test(groups={"regressionTest"})
     public void verifyCountryRegionCodeDropDown(){
         new SignUpButtonTest().SingUpButtonTest();
-        new ContactInfoPage().countryRegionCode.click();
+        new ContactInfoPage().countryRegionCode.sendKeys(Keys.ENTER);
 
         // assert?
 
