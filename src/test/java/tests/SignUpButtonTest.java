@@ -5,12 +5,14 @@ import org.testng.annotations.Test;
 import pages.SingUpButtonPage;
 import utilities.Driver;
 
+
 public class SignUpButtonTest extends TestBase{
 
 
 
 
-@Test
+
+    @Test(groups={"smokeTest"})
     public void SingUpButtonTest() {
 
      new SingUpButtonPage().SignUpButton.click();
