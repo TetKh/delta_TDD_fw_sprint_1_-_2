@@ -9,6 +9,8 @@ import org.testng.annotations.Test;
 import utilities.ConfigReader;
 import utilities.Driver;
 
+import java.security.Key;
+
 public class LogInInfoPage {
     public LogInInfoPage(){
         PageFactory.initElements(Driver.getDriver(), this);
@@ -80,8 +82,8 @@ public class LogInInfoPage {
     public void correctInformation(){
         userName.sendKeys(ConfigReader.getProperty("username"));
         password.sendKeys(ConfigReader.getProperty("password"));
-        //confirmPassword.sendKeys(ConfigReader.getProperty("password"), Keys.ENTER);
-        confirmPassword.sendKeys(ConfigReader.getProperty("password"));
+        //confirmPassword.sendKeys(ConfigReader.getProperty("password"), Keys.TAB);
+        confirmPassword.sendKeys(ConfigReader.getProperty("password"),Keys.TAB);
     }
     @Test
     public void ExistingInformation(){

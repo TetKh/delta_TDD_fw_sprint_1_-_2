@@ -27,10 +27,11 @@ public class LoginInfoTest extends TestBase {
         new LogInInfoPage().correctInformation();
         String pageSource = Driver.getDriver().getPageSource();
         String markOne = new LogInInfoPage().checkmarks1.getText();
-        //String markTwo = new LogInInfoPage().checkmarks2.getText();
-        //List<String> elements = new ArrayList<>(Arrays.asList(markOne,markTwo));
-        //for (String element : elements)
-            Assert.assertTrue(pageSource.contains(markOne));
+//        String markTwo = new LogInInfoPage().checkmarks2.getText();
+//        List<String> elements = new ArrayList<>(Arrays.asList(markOne,markTwo));
+//        for (String element : elements)
+        Assert.assertTrue(pageSource.contains(markOne));
+//         Assert.assertTrue(pageSource.contains(markTwo));
  }
 
     @Test
