@@ -9,8 +9,10 @@ import org.testng.asserts.SoftAssert;
 import pages.BasicInfoPage;
 import pages.ContactInfoPage;
 import pages.LogInInfoPage;
+import utilities.Driver;
 import utilities.SeleniumUtils;
 
+import java.security.Key;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
@@ -26,33 +28,40 @@ public class ContactInfoTest extends TestBase{
         new SignUpButtonTest().SingUpButtonTest();
         new ContactInfoPage().countryRegion.click();
         new ContactInfoPage().countryRegion.sendKeys(Keys.DOWN,Keys.ENTER);
-        //I still need to figure out
-        //how to grab the text, so we can write the assert test - Magda
+       String answer = "United States";
+       String pageSource = Driver.getDriver().getPageSource();
+       Assert.assertTrue(pageSource.contains(answer));
+
 
     }
     @Test(groups={"regressionTest"})
         public void verifyAddressTypeDropDown() {
             new SignUpButtonTest().SingUpButtonTest();
             new ContactInfoPage().addressType.click();
-            new ContactInfoPage().addressType.sendKeys(Keys.DOWN,Keys.ENTER);//Magda
+            new ContactInfoPage().addressType.sendKeys(Keys.DOWN,Keys.ENTER);
+            String answer = "Home";
+            String pageSource = Driver.getDriver().getPageSource();
+            Assert.assertTrue(pageSource.contains(answer));
 
         }
 
     @Test(groups={"regressionTest"})
     public void verifyAddressCredentials(){
-
-        new ContactInfoPage().scrollWindow(); // I added the js.executeScript, so the window can move down
-        String email = faker.funnyName().name();
         new SignUpButtonTest().SingUpButtonTest();
+        new ContactInfoPage().scrollWindow();
+        new ContactInfoPage().countryRegion.sendKeys("United States", Keys.TAB);
+        new ContactInfoPage().addressType.sendKeys(Keys.DOWN,Keys.ENTER, Keys.TAB);
+
         Faker faker = new Faker();
         new ContactInfoPage().addressLine1.sendKeys(faker.address().streetAddress());
         new ContactInfoPage().addressLine2.sendKeys(faker.address().streetAddressNumber());
         new ContactInfoPage().city.sendKeys(faker.address().city());
+        // STATE/PROVINCE missing
         new ContactInfoPage().postalCode.sendKeys(faker.address().zipCode());
         new ContactInfoPage().areaCode.sendKeys(faker.phoneNumber().phoneNumber());
         new ContactInfoPage().phoneNo.sendKeys(faker.phoneNumber().phoneNumber());
-        new ContactInfoPage().email.sendKeys(email);
-        new ContactInfoPage().confirmEmail.sendKeys(email);
+        new ContactInfoPage().email.sendKeys(faker.funnyName().name());
+        new ContactInfoPage().confirmEmail.sendKeys(faker.funnyName().name());
 
 
     }

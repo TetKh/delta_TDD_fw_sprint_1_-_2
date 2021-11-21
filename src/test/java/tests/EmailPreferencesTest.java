@@ -16,14 +16,14 @@ public class EmailPreferencesTest extends TestBase{
 
       new SignUpButtonTest().SingUpButtonTest();
       new EmailPreferencesPage().emailPreferenceSelectButton.click();
-      SeleniumUtils.waitFor(10);
+      SeleniumUtils.waitFor(2);
       String expected = "SELECTED";
       String pageSource = Driver.getDriver().getPageSource();
       Assert.assertTrue(pageSource.contains(expected));
 
 //      String expected = "✓ SELECTED";
 //      String actual = new EmailPreferencesPage().emailPreferenceSelectButton.getText();
-//      Assert.assertEquals(ac,expected);
+//      Assert.assertEquals(actual,expected);
 
 
 
