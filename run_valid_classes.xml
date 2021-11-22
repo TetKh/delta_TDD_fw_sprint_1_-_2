@@ -30,6 +30,7 @@
             </class>
 
             <class name="tests.SignUpButtonTest"/>
+            <class name="tests.MainPageTest"/>
 
 
 
