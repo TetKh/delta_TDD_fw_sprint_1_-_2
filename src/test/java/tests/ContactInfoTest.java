@@ -44,19 +44,12 @@ public class ContactInfoTest extends TestBase{
         }
 
     @Test
-    public void verifyAddressCredentials(){
+    public void validAddressCredentials(){
         new SignUpButtonTest().SingUpButtonTest();
         new ContactInfoPage().scrollWindow();
-        new ContactInfoPage().addressLine1.sendKeys(faker.address().streetAddress());
-        new ContactInfoPage().addressLine2.sendKeys(faker.address().streetAddressNumber());
-        new ContactInfoPage().city.sendKeys(faker.address().city());
-        new ContactInfoPage().postalCode.sendKeys(faker.address().zipCode());
-        new ContactInfoPage().countryRegionCode.sendKeys(Keys.ENTER);
-        new ContactInfoPage().areaCode.sendKeys("917");
-        new ContactInfoPage().phoneNo.sendKeys(faker.phoneNumber().phoneNumber());
-        new ContactInfoPage().email.sendKeys(ConfigReader.getProperty("email"));
-        new ContactInfoPage().confirmEmail.sendKeys(ConfigReader.getProperty("email"));
-        String answer = new ContactInfoPage().addressLine1.getText();
+        new ContactInfoPage().validAddressInfo();
+
+        String answer = new ContactInfoPage().postalCode.getText();
         String pageSource = Driver.getDriver().getPageSource();
         Assert.assertTrue(pageSource.contains(answer));
 
@@ -67,19 +60,8 @@ public class ContactInfoTest extends TestBase{
     @Test
     public void invalidAddressCredentials(){
         new SignUpButtonTest().SingUpButtonTest();
-        new ContactInfoPage().scrollWindow();
-
-       // new ContactInfoPage().countryRegion.click();
-       // new ContactInfoPage().addressType.sendKeys(Keys.DOWN,Keys.ENTER);
-        new ContactInfoPage().addressLine1.sendKeys(faker.address().cityPrefix());
-        new ContactInfoPage().addressLine2.sendKeys(faker.address().firstName());
-        new ContactInfoPage().city.sendKeys(faker.address().zipCode());
-        new ContactInfoPage().postalCode.sendKeys(faker.address().city());
-        new ContactInfoPage().countryRegionCode.click();
-        new ContactInfoPage().areaCode.sendKeys("ABC");
-        new ContactInfoPage().phoneNo.sendKeys(faker.phoneNumber().subscriberNumber());
-        new ContactInfoPage().email.sendKeys(ConfigReader.getProperty("fakeEmail"));
-        new ContactInfoPage().confirmEmail.sendKeys(ConfigReader.getProperty("fakeEmail"));
+       new ContactInfoPage().scrollWindow();
+       new ContactInfoPage().invalidAddressInfo();
         String answer = new ContactInfoPage().warning.getText();
         String pageSource = Driver.getDriver().getPageSource();
         Assert.assertTrue(pageSource.contains(answer));

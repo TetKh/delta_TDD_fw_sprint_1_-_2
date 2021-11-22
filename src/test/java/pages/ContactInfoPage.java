@@ -1,9 +1,12 @@
 package pages;
 
+import com.github.javafaker.Faker;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utilities.ConfigReader;
 import utilities.Driver;
 
 public class ContactInfoPage {
@@ -58,6 +61,34 @@ public class ContactInfoPage {
 
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("window.scrollBy(0,500)", "");
+    }
+
+    public void validAddressInfo(){
+
+        Faker faker= new Faker();
+
+        new ContactInfoPage().addressLine1.sendKeys(faker.address().streetAddress());
+        new ContactInfoPage().addressLine2.sendKeys(faker.address().streetAddressNumber());
+        new ContactInfoPage().city.sendKeys(faker.address().city());
+        new ContactInfoPage().postalCode.sendKeys(faker.address().zipCode());
+        new ContactInfoPage().countryRegionCode.sendKeys(Keys.ENTER);
+        new ContactInfoPage().areaCode.sendKeys("917");
+        new ContactInfoPage().phoneNo.sendKeys(faker.phoneNumber().phoneNumber());
+        new ContactInfoPage().email.sendKeys(ConfigReader.getProperty("email"));
+        new ContactInfoPage().confirmEmail.sendKeys(ConfigReader.getProperty("email"));
+    }
+
+    public void invalidAddressInfo(){
+        Faker faker=new Faker();
+        new ContactInfoPage().addressLine1.sendKeys(faker.phoneNumber().cellPhone());
+        new ContactInfoPage().addressLine2.sendKeys(faker.address().firstName());
+        new ContactInfoPage().city.sendKeys(faker.address().zipCode());
+        new ContactInfoPage().postalCode.sendKeys(faker.phoneNumber().subscriberNumber(19));
+        new ContactInfoPage().countryRegionCode.sendKeys("zoo");
+        new ContactInfoPage().areaCode.sendKeys("ABC");
+        new ContactInfoPage().phoneNo.sendKeys(faker.phoneNumber().subscriberNumber());
+        new ContactInfoPage().email.sendKeys(ConfigReader.getProperty("fakeEmail"));
+        new ContactInfoPage().confirmEmail.sendKeys(ConfigReader.getProperty("fakeEmail2"));
     }
 
 }
