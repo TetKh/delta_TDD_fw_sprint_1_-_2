@@ -10,7 +10,7 @@ public class CompleteButtonTest extends TestBase{
     public void completeButton(){
         new SignUpButtonTest().SingUpButtonTest();
         new CompleteButtonPage().completeButton.click();
-        Assert.assertTrue(new CompleteButtonPage().completeButton.isSelected());
+        Assert.assertTrue(new CompleteButtonPage().completeButton.isEnabled());
     }
 
 }
