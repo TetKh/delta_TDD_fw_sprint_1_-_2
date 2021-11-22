@@ -13,9 +13,9 @@ public class SignUpButtonTest extends TestBase{
 
 
 
-    @Test
+    @Test(groups={"smokeTest"})
     public void SingUpButtonTest() {
-     new SingUpButtonPage().SignUpButton.click();
+     new SingUpButtonPage().signButtonClick();
     Assert.assertEquals(Driver.getDriver().getTitle(), "Join SkyMiles® Loyalty Program : Delta Air Lines");
     new CookiesHandlingPage().cookiesRejectButton.click();
     }

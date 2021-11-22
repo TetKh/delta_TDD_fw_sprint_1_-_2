@@ -80,15 +80,15 @@ public class ContactInfoPage {
 
     public void invalidAddressInfo(){
         Faker faker=new Faker();
-        new ContactInfoPage().addressLine1.sendKeys(faker.phoneNumber().cellPhone());
-        new ContactInfoPage().addressLine2.sendKeys(faker.address().firstName());
-        new ContactInfoPage().city.sendKeys(faker.address().zipCode());
-        new ContactInfoPage().postalCode.sendKeys(faker.phoneNumber().subscriberNumber(19));
-        new ContactInfoPage().countryRegionCode.sendKeys("zoo");
-        new ContactInfoPage().areaCode.sendKeys("ABC");
-        new ContactInfoPage().phoneNo.sendKeys(faker.phoneNumber().subscriberNumber());
-        new ContactInfoPage().email.sendKeys(ConfigReader.getProperty("fakeEmail"));
-        new ContactInfoPage().confirmEmail.sendKeys(ConfigReader.getProperty("fakeEmail2"));
+        addressLine1.sendKeys(faker.phoneNumber().cellPhone());
+        addressLine2.sendKeys(faker.address().firstName());
+        city.sendKeys(faker.address().zipCode());
+        postalCode.sendKeys(faker.phoneNumber().subscriberNumber(19));
+        countryRegionCode.sendKeys("zoo");
+        areaCode.sendKeys("ABC");
+        phoneNo.sendKeys(faker.phoneNumber().subscriberNumber());
+        email.sendKeys(ConfigReader.getProperty("fakeEmail"));
+        confirmEmail.sendKeys(ConfigReader.getProperty("fakeEmail2"));
     }
 
 }

@@ -14,4 +14,8 @@ public class SingUpButtonPage {
 
     @FindBy(xpath = " //a[@class='sign-up btn btn-link']")
     public WebElement SignUpButton;
+
+    public void signButtonClick(){
+    SignUpButton.click();
+    }
 }
