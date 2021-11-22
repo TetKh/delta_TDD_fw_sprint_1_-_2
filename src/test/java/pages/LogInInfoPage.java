@@ -78,20 +78,20 @@ public class LogInInfoPage {
     @FindBy(xpath = "//span[@id='basicInfoQuestionId2-button']")
     public WebElement questionSecondSelection;
 
-    @Test
+
     public void correctInformation(){
         userName.sendKeys(ConfigReader.getProperty("username"));
         password.sendKeys(ConfigReader.getProperty("password"));
         //confirmPassword.sendKeys(ConfigReader.getProperty("password"), Keys.TAB);
         confirmPassword.sendKeys(ConfigReader.getProperty("password"),Keys.TAB);
     }
-    @Test
+
     public void ExistingInformation(){
         userName.sendKeys(ConfigReader.getProperty("username1"));
         password.sendKeys(ConfigReader.getProperty("password"));
         confirmPassword.sendKeys(ConfigReader.getProperty("password"));
     }
-   @Test
+
     public void incorrectInformation(){
         userName.sendKeys(ConfigReader.getProperty("invalidUsername"));
         password.sendKeys(ConfigReader.getProperty("invalidPassword"));

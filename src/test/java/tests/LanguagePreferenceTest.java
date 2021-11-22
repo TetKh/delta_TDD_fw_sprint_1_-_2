@@ -11,7 +11,7 @@ import utilities.SeleniumUtils;
 
 public class LanguagePreferenceTest extends TestBase{
 
-    @Test(groups={"regressionTest"})
+    @Test
     public  void verifySelectLanguageDropDown(){
         new SignUpButtonTest().SingUpButtonTest();
         new LanguagePreferencePage().scrollWindow();

@@ -20,7 +20,7 @@ public class LoginInfoTest extends TestBase {
     //String pageSource = Driver.getDriver().getPageSource();
 
     @Test
-    public void enterValidCredentials() throws InterruptedException {
+    public void enterValidCredentials(){
 
         new SignUpButtonTest().SingUpButtonTest();
         new LogInInfoPage().scrollWindow();
@@ -34,19 +34,19 @@ public class LoginInfoTest extends TestBase {
 //         Assert.assertTrue(pageSource.contains(markTwo));
  }
 
-    @Test
-    public void enterExistingCredentials() {
+//    @Test
+//    public void enterExistingCredentials() {
+//
+//        new SignUpButtonTest().SingUpButtonTest();
+//        new LogInInfoPage().scrollWindow();
+//        new LogInInfoPage().ExistingInformation();
+//        String onTheWeb =  new LogInInfoPage().warning.getText();
+//        String pageSource = Driver.getDriver().getPageSource();
+//        Assert.assertTrue(pageSource.contains(onTheWeb));
+//    }
 
-        new SignUpButtonTest().SingUpButtonTest();
-        new LogInInfoPage().scrollWindow();
-        new LogInInfoPage().ExistingInformation();
-        String onTheWeb =  new LogInInfoPage().warning.getText();
-        String pageSource = Driver.getDriver().getPageSource();
-        Assert.assertTrue(pageSource.contains(onTheWeb));
-    }
-
     @Test
-    public void enterInvalidCredentials() {
+    public void invalidLogInCredentials() {
 
         new SignUpButtonTest().SingUpButtonTest();
         new LogInInfoPage().scrollWindow();
@@ -55,8 +55,8 @@ public class LoginInfoTest extends TestBase {
         String inValidMessage = new LogInInfoPage().invalidLogInfoMessage.getText();
         Assert.assertTrue(pageSource.contains(inValidMessage));
     }
-    @Test(groups={"regressionTest"})
-    public void enterInvalidConfirmPassword(){
+    @Test
+    public void invalidConfirmPassword(){
 
         new SignUpButtonTest().SingUpButtonTest();
         new LogInInfoPage().scrollWindow();
@@ -66,7 +66,7 @@ public class LoginInfoTest extends TestBase {
         Assert.assertTrue(pageSource.contains(inValidConPassMessage));
     }
 
-    @Test(groups={"regressionTest"})
+    @Test
     public void verifyFirstQuestionDropDown(){
 
         new SignUpButtonTest().SingUpButtonTest();
@@ -82,7 +82,7 @@ public class LoginInfoTest extends TestBase {
 
         new LogInInfoPage().answer1.sendKeys(ConfigReader.getProperty("answer#1"));
     }
-    @Test(groups={"regressionTest"})
+    @Test
     public void verifySecondQuestionDropDown() {
 
         new SignUpButtonTest().SingUpButtonTest();
@@ -96,7 +96,7 @@ public class LoginInfoTest extends TestBase {
         new LogInInfoPage().answer2.sendKeys(ConfigReader.getProperty("answer#2"));
     }
 
-    @Test(groups={"regressionTest"})
+    @Test
     public void checkQuestionMarkUser() {
         new SignUpButtonTest().SingUpButtonTest();
         new LogInInfoPage().scrollWindow();

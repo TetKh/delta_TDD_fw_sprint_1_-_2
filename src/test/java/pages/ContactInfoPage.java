@@ -33,10 +33,10 @@ public class ContactInfoPage {
     @FindBy(id = "postal-1")
     public WebElement postalCode;
 
-    @FindBy(xpath = "phoneCountryCode-button")
+    @FindBy(id = "phoneCountryCode-button")
     public WebElement countryRegionCode;
 
-    @FindBy(id = "phoneAreaCode")
+    @FindBy(id = "requiredAreacode")
     public WebElement areaCode;
 
     @FindBy(id = "requiredPhoneNumber")
@@ -50,6 +50,9 @@ public class ContactInfoPage {
 
     @FindBy(id = "basicInfoTravelerNo")
     public WebElement travelNo;
+
+    @FindBy (id="primaryAreaCode_label")
+    public WebElement warning;
 
     public void scrollWindow(){
 
