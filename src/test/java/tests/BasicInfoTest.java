@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.BasicInfoPage;
+import pages.CookiesHandlingPage;
 import pages.LogInInfoPage;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -22,7 +23,8 @@ import java.util.concurrent.ThreadLocalRandom;
 public class BasicInfoTest extends TestBase{
 
 
-    @Test(groups={"regressionTest"})
+
+    @Test
     public void verifyPrefixDropDown(){
         new SignUpButtonTest().SingUpButtonTest();
         new BasicInfoPage().prefix.sendKeys(Keys.DOWN,Keys.DOWN,Keys.DOWN,Keys.DOWN);
@@ -33,7 +35,7 @@ public class BasicInfoTest extends TestBase{
 
 
     }
-    @Test(groups={"regressionTest"})
+    @Test
     public void validFullNameCredentials(){
        new SignUpButtonTest().SingUpButtonTest();
        new BasicInfoPage().validCredentials();
@@ -43,17 +45,17 @@ public class BasicInfoTest extends TestBase{
 
 
     }
-    @Test(groups={"regressionTest"})
+    @Test
     public void invalidFullNameCredentials(){
        new SignUpButtonTest().SingUpButtonTest();
-       new BasicInfoPage().inValidCredentials();
+       new BasicInfoPage().invalidCredentials();
        String invalidName = new BasicInfoPage().invalidName.getText();
        String pageSource = Driver.getDriver().getPageSource();
        Assert.assertTrue(pageSource.contains(invalidName));
 
     }
 
-    @Test(groups={"regressionTest"})
+    @Test
     public void verifySuffixDropDown(){
        new SignUpButtonTest().SingUpButtonTest();
        new BasicInfoPage().suffix.sendKeys(Keys.DOWN,Keys.DOWN,Keys.DOWN);
@@ -62,7 +64,7 @@ public class BasicInfoTest extends TestBase{
        Assert.assertTrue(pageSource.contains(suffix));
 
     }
-    @Test(groups={"regressionTest"})
+    @Test
     public void verifyGenderDropDown(){
        new SignUpButtonTest().SingUpButtonTest();
        new BasicInfoPage().gender.sendKeys(Keys.DOWN, Keys.DOWN,Keys.ENTER);
@@ -72,7 +74,7 @@ public class BasicInfoTest extends TestBase{
         }
 
 
-    @Test(groups={"regressionTest"})
+    @Test
     public void validDOBinfo() {
         new SignUpButtonTest().SingUpButtonTest();
         new BasicInfoPage().validDOB();
@@ -83,10 +85,10 @@ public class BasicInfoTest extends TestBase{
 
 
     }
-    @Test(groups={"regressionTest"})
+    @Test
     public void invalidDOBinfo() {
         new SignUpButtonTest().SingUpButtonTest();
-        new BasicInfoPage().inValidDOB();
+        new BasicInfoPage().invalidDOB();
         String BirthDayWarning =  new BasicInfoPage().monthOB.getText();
         String pageSource = Driver.getDriver().getPageSource();
         Assert.assertTrue(pageSource.contains(BirthDayWarning));
@@ -94,7 +96,7 @@ public class BasicInfoTest extends TestBase{
     }
 
 
-    @Test(groups={"regressionTest"})
+    @Test
     public void validKnownTravelerNumber(){
        new SignUpButtonTest().SingUpButtonTest();
        new BasicInfoPage().travelNo.sendKeys(ConfigReader.getProperty("KnownTravelerNumber"));
@@ -104,7 +106,7 @@ public class BasicInfoTest extends TestBase{
 
 
     }
-    @Test(groups={"regressionTest"})
+    @Test
     public void invalidKnownTravelerNumber(){
         new SignUpButtonTest().SingUpButtonTest();
         new BasicInfoPage().travelNo.sendKeys(ConfigReader.getProperty("invalidKnownTravelerNumber"));
@@ -112,7 +114,7 @@ public class BasicInfoTest extends TestBase{
         String pageSource = Driver.getDriver().getPageSource();
         Assert.assertTrue(pageSource.contains(invalidTravelNo));
     }
-    @Test(groups={"regressionTest"})
+    @Test
     public void validRedRessNumber(){
         new SignUpButtonTest().SingUpButtonTest();
         new BasicInfoPage().redressNo.sendKeys(ConfigReader.getProperty("RedRessNumber"));
@@ -121,7 +123,7 @@ public class BasicInfoTest extends TestBase{
         Assert.assertTrue(pageSource.contains(redRessNo));
 
     }
-    @Test(groups={"regressionTest"})
+    @Test
     public void invalidRedRessNumber(){
         new SignUpButtonTest().SingUpButtonTest();
         new BasicInfoPage().redressNo.sendKeys(ConfigReader.getProperty("invalidRedRessNumber"));
@@ -132,7 +134,7 @@ public class BasicInfoTest extends TestBase{
 
     }
 
-    @Test(groups={"regressionTest"})
+    @Test
     public void verifyBusinessOwnerChkBox(){
        new SignUpButtonTest().SingUpButtonTest();
        new BasicInfoPage().businessOwnerCheckButton.click();

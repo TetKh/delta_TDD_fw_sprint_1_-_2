@@ -6,13 +6,31 @@
 
         <classes>
 <!--            class names must include package names if there are any-->
-            <class name="tests.BasicInfoTest"/>
+            <class name="tests.BasicInfoTest">
+                <methods>
+                    <exclude name="invalid.*"/>
+                </methods>
+            </class>
+
             <class name="tests.CompleteButtonTest"/>
-            <class name="tests.ContactInfoTest"/>
+
+            <class name="tests.ContactInfoTest">
+                <methods>
+                    <exclude name="invalid.*"/>
+                </methods>
+            </class>
+
             <class name="tests.EmailPreferencesTest"/>
             <class name="tests.LanguagePreferenceTest"/>
-            <class name="tests.LoginInfoTest"/>
+            <class name="tests.LoginInfoTest">
+                <methods>
+                    <exclude name="invalid.*"/>
+                </methods>
+
+            </class>
+
             <class name="tests.SignUpButtonTest"/>
+            <class name="tests.MainPageTest"/>
 
 
 

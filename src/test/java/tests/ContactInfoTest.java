@@ -9,6 +9,7 @@ import org.testng.asserts.SoftAssert;
 import pages.BasicInfoPage;
 import pages.ContactInfoPage;
 import pages.LogInInfoPage;
+import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.SeleniumUtils;
 
@@ -23,68 +24,61 @@ public class ContactInfoTest extends TestBase{
     ContactInfoPage contactInfoPage;
     Faker faker;
 
-    @Test(groups={"regressionTest"})
+    @Test
     public void verifyCountryRegionDropDown() {
         new SignUpButtonTest().SingUpButtonTest();
-        new ContactInfoPage().countryRegion.click();
         new ContactInfoPage().countryRegion.sendKeys(Keys.DOWN,Keys.ENTER);
-       String answer = "United States";
+       String answer = new ContactInfoPage().countryRegion.getText();
        String pageSource = Driver.getDriver().getPageSource();
        Assert.assertTrue(pageSource.contains(answer));
 
     }
-    @Test(groups={"regressionTest"})
+    @Test
         public void verifyAddressTypeDropDown() {
             new SignUpButtonTest().SingUpButtonTest();
-            new ContactInfoPage().addressType.click();
             new ContactInfoPage().addressType.sendKeys(Keys.DOWN,Keys.ENTER);
-            String answer = "Home";
+            String answer = new ContactInfoPage().addressType.getText();
             String pageSource = Driver.getDriver().getPageSource();
             Assert.assertTrue(pageSource.contains(answer));
 
         }
 
-    @Test(groups={"regressionTest"})
-    public void verifyAddressCredentials(){
+    @Test
+    public void validAddressCredentials(){
         new SignUpButtonTest().SingUpButtonTest();
         new ContactInfoPage().scrollWindow();
-        new ContactInfoPage().countryRegion.sendKeys("United States", Keys.TAB);
-        new ContactInfoPage().addressType.sendKeys(Keys.DOWN,Keys.ENTER, Keys.TAB);
+        new ContactInfoPage().validAddressInfo();
 
-        Faker faker = new Faker();
-        new ContactInfoPage().addressLine1.sendKeys(faker.address().streetAddress());
-        new ContactInfoPage().addressLine2.sendKeys(faker.address().streetAddressNumber());
-        new ContactInfoPage().city.sendKeys(faker.address().city());
-        // STATE/PROVINCE missing
-        new ContactInfoPage().postalCode.sendKeys(faker.address().zipCode());
-        new ContactInfoPage().areaCode.sendKeys(faker.phoneNumber().phoneNumber());
-        new ContactInfoPage().phoneNo.sendKeys(faker.phoneNumber().phoneNumber());
-        new ContactInfoPage().email.sendKeys(faker.funnyName().name());
-        new ContactInfoPage().confirmEmail.sendKeys(faker.funnyName().name());
+        String answer = new ContactInfoPage().postalCode.getText();
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(answer));
+
+
 
     }
-    @Test(groups={"regressionTest"})
-            public void verifyStateProvinceDropDown() {
-                new SignUpButtonTest().SingUpButtonTest();
-                new ContactInfoPage().stateProvince.click();
-            }
 
-//    @Test
-//    public void verifyFullNameInValidCredentials(){
-//        new SignUpButtonTest().SingUpButtonTest();
-//        Faker faker = new Faker();
-//        new ContactInfoPage().addressLine1.sendKeys(faker.chuckNorris().fact());
-//        new ContactInfoPage().addressLine2.sendKeys(faker.phoneNumber().extension());
-//        new ContactInfoPage().city.sendKeys(faker.slackEmoji().celebration());
-//        //assert
-//    }
+    @Test
+    public void invalidAddressCredentials(){
+        new SignUpButtonTest().SingUpButtonTest();
+       new ContactInfoPage().scrollWindow();
+       new ContactInfoPage().invalidAddressInfo();
+        String answer = new ContactInfoPage().warning.getText();
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(answer));
 
-    @Test(groups={"regressionTest"})
+
+
+    }
+
+
+    @Test
     public void verifyCountryRegionCodeDropDown(){
         new SignUpButtonTest().SingUpButtonTest();
         new ContactInfoPage().countryRegionCode.sendKeys(Keys.ENTER);
+        String answer = new ContactInfoPage().countryRegion.getText();
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(answer));
 
-        // assert?
 
     }
 

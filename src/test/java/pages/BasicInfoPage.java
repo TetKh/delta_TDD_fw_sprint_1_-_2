@@ -77,7 +77,7 @@ public class BasicInfoPage {
         lastName.sendKeys(ConfigReader.getProperty("lastName"));
 
     }
-    public  void inValidCredentials(){
+    public  void invalidCredentials(){
         firstName.sendKeys(ConfigReader.getProperty("invalidFirstName"));
         middleName.sendKeys(ConfigReader.getProperty("invalidMiddleName"));
         lastName.sendKeys(ConfigReader.getProperty(""));
@@ -90,7 +90,7 @@ public class BasicInfoPage {
      dateOB.sendKeys(Keys.DOWN, Keys.DOWN,Keys.ENTER);
       yearOB.sendKeys(ConfigReader.getProperty("yearOB"));
     }
-    public void inValidDOB(){
+    public void invalidDOB(){
         monthOB.sendKeys(Keys.ENTER);
        dateOB.sendKeys(Keys.ENTER);
        yearOB.sendKeys(Keys.ENTER);
