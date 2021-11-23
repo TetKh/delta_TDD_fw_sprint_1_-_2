@@ -10,9 +10,6 @@ import utilities.Driver;
 public class SignUpButtonTest extends TestBase{
 
 
-
-
-
     @Test (groups={"smokeTest"})
     public void SingUpButtonTest() {
 
