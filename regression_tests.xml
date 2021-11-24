@@ -5,7 +5,7 @@
     <test name="UI Tests">
         <groups>
             <run>
-                <include name = "regressionTest" />
+                <include name = ".*"/>
             </run>
         </groups>
         <packages>
