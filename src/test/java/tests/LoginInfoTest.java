@@ -34,16 +34,16 @@ public class LoginInfoTest extends TestBase {
 //         Assert.assertTrue(pageSource.contains(markTwo));
  }
 
-//    @Test
-//    public void enterExistingCredentials() {
-//
-//        new SignUpButtonTest().SingUpButtonTest();
-//        new LogInInfoPage().scrollWindow();
-//        new LogInInfoPage().ExistingInformation();
-//        String onTheWeb =  new LogInInfoPage().warning.getText();
-//        String pageSource = Driver.getDriver().getPageSource();
-//        Assert.assertTrue(pageSource.contains(onTheWeb));
-//    }
+    @Test
+    public void enterExistingCredentials() {
+
+        new SignUpButtonTest().SingUpButtonTest();
+        new LogInInfoPage().scrollWindow();
+        new LogInInfoPage().ExistingInformation();
+        String onTheWeb =  new LogInInfoPage().warning.getText();
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(onTheWeb));
+    }
 
     @Test
     public void invalidLogInCredentials() {
