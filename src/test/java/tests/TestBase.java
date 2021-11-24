@@ -15,7 +15,7 @@ public class TestBase {
     protected WebDriver driver;
 
 
-    @BeforeMethod
+    @BeforeMethod (alwaysRun = true)
     public void setupMethod(){
         driver = Driver.getDriver();
         driver.manage().window().maximize();
@@ -26,9 +26,9 @@ public class TestBase {
     }
 
 
-//    @AfterMethod
-//    public void tearDownMethod(){
-//        Driver.quitDriver();
-//    }
+    @AfterMethod (alwaysRun = true)
+    public void tearDownMethod(){
+        Driver.quitDriver();
+    }
 }
 
