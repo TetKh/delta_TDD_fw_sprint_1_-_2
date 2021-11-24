@@ -107,14 +107,14 @@ public class BasicInfoTest extends TestBase{
 
 
     }
-    @Test
-    public void invalidKnownTravelerNumber(){
-        new SignUpButtonTest().SingUpButtonTest();
-        new BasicInfoPage().travelNo.sendKeys(ConfigReader.getProperty("invalidKnownTravelerNumber"));
-        String invalidTravelNo=  new BasicInfoPage().invalidTravelNo.getText();
-        String pageSource = Driver.getDriver().getPageSource();
-        Assert.assertTrue(pageSource.contains(invalidTravelNo));
-    }
+//    @Test
+//    public void invalidKnownTravelerNumber(){
+//        new SignUpButtonTest().SingUpButtonTest();
+//        new BasicInfoPage().travelNo.sendKeys(ConfigReader.getProperty("invalidKnownTravelerNumber"));
+//        String travelNoText=  new BasicInfoPage().invalidTravelNo.getText();
+//        String pageSource = Driver.getDriver().getPageSource();
+//        Assert.assertFalse(pageSource.contains(travelNoText));
+//    }
     @Test
     public void validRedRessNumber(){
         new SignUpButtonTest().SingUpButtonTest();

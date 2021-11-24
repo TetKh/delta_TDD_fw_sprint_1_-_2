@@ -80,7 +80,7 @@ public class BasicInfoPage {
     public  void invalidCredentials(){
         firstName.sendKeys(ConfigReader.getProperty("invalidFirstName"));
         middleName.sendKeys(ConfigReader.getProperty("invalidMiddleName"));
-        lastName.sendKeys(ConfigReader.getProperty(""));
+        lastName.sendKeys("345@!");
 
 
     }
