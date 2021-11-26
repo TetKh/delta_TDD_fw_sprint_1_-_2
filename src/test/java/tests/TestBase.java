@@ -28,7 +28,9 @@ public class TestBase {
 
     @AfterMethod (alwaysRun = true)
     public void tearDownMethod(){
+        driver.manage().deleteAllCookies();
         Driver.quitDriver();
+
     }
 }
 

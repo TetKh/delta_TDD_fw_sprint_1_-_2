@@ -17,4 +17,6 @@ public class SignUpButtonTest extends TestBase{
     new CookiesHandlingPage().cookiesRejectButton.click();
 
     }
+
+
 }
