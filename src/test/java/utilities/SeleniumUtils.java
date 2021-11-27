@@ -123,12 +123,13 @@ public class SeleniumUtils {
             return false;
         }
     }
-    public static String getScreenshot(String name)  {
+    public static String getScreenshot()  {
+
         TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
         File source = ts.getScreenshotAs(OutputType.FILE);
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-        String fileName = name + date + ".png";
-        String target = System.getProperty("user.dir") + "/test-output/extentReports/" + fileName;
+        String fileName = "failed" + date + ".png";
+        String target = System.getProperty("user.dir") + "/target/extentReports/" + fileName;
         File finalDestination = new File(target);
         try {
             FileUtils.copyFile(source, finalDestination);
