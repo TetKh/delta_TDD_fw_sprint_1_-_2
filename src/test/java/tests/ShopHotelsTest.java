@@ -13,7 +13,7 @@ public class ShopHotelsTest extends TestBase{
 
 
 
-    @Test(groups={"smokeTest"})
+    @Test (groups={"smokeTest"})
 
     public void verifyShopHotelsButton() {
        // new MainPageTest().mainPage();
@@ -25,7 +25,7 @@ public class ShopHotelsTest extends TestBase{
     }
     @Test
     public void validDestination(){
-        new ShopHotelsTest().verifyShopHotelsButton();
+       verifyShopHotelsButton();
        new ShopHotelsPage().destination.sendKeys("Tokyo");
         String pageSource = Driver.getDriver().getPageSource();
         String destination = new ShopHotelsPage().destination.getText();
@@ -34,10 +34,12 @@ public class ShopHotelsTest extends TestBase{
     }
     @Test
     public void invalidDestination(){
-        new ShopHotelsTest().verifyShopHotelsButton();
-        new ShopHotelsPage().destination.sendKeys("89$%Україна");
+       verifyShopHotelsButton();
+        new ShopHotelsPage().destination.clear();
+        new ShopHotelsPage().searchButtonClick();
         String pageSource = Driver.getDriver().getPageSource();
-        String destination = new ShopHotelsPage().destination.getText();
+        String destination = new ShopHotelsPage().errorMsg.getText();
+
         Assert.assertTrue(pageSource.contains(destination));
 
 
@@ -73,25 +75,22 @@ public class ShopHotelsTest extends TestBase{
 @Test
     public void selectRooms() {
     new ShopHotelsTest().verifyShopHotelsButton();
-    new ShopHotelsPage().rooms.sendKeys(Keys.DOWN,Keys.DOWN,Keys.DOWN, Keys.ENTER);
+    new ShopHotelsPage().rooms.sendKeys(Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.ENTER);
     String pageSource = Driver.getDriver().getPageSource();
     String roomChoice = new ShopHotelsPage().rooms.getText();
     Assert.assertTrue(pageSource.contains(roomChoice));
-  //  SeleniumUtils.getScreenshot("screenshots/failed" + System.currentTimeMillis() + ".png");
 }
 
 
 
 @Test
 public void selectNumOfAdultsRoom1()  {
-   //new ShopHotelsTest().verifyShopHotelsButton();
     new ShopHotelsTest().selectRooms();
-   // new ShopHotelsPage().shopHotelButtonClick();
-    new ShopHotelsPage().adultInRoom.sendKeys("5");
+    new ShopHotelsPage().adultInRoom.sendKeys(Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.ENTER);
     String numOfAdults = new ShopHotelsPage().adultInRoom.getText();
     String pageSource = Driver.getDriver().getPageSource();
 
-    //Assert.assertTrue(pageSource.contains(numOfAdults));
+    Assert.assertEquals(pageSource,numOfAdults);
 
 }
 
@@ -121,19 +120,20 @@ public void selectNumOfAdultsRoom1()  {
     public void selectNumOfChildrenRoom2(){
 
         new ShopHotelsTest().selectRooms();
-        new ShopHotelsPage().adultInRoom.sendKeys("09");
+        new ShopHotelsPage().adultInRoom.sendKeys(Keys.DOWN,Keys.DOWN,Keys.ENTER);
         String numOfAdults = new ShopHotelsPage().adultInRoom.getText();
         String pageSource = Driver.getDriver().getPageSource();
 
-        //Assert.assertTrue(pageSource.contains(numOfAdults));
+        Assert.assertTrue(pageSource.contains(numOfAdults));
 
     }
 
-@Test
-public void verifySearchButton(){
+    @Test
+    public void verifySearchButton(){
         new ShopHotelsTest().verifyShopHotelsButton();
         new ShopHotelsPage().searchButtonClick();
-    Assert.assertTrue(new ShopHotelsPage().searchButton.isEnabled());
+        Assert.assertTrue(new ShopHotelsPage().searchButton.isEnabled());
+
 }
 
 
