@@ -92,5 +92,4 @@ public class LogInTest extends TestBase {
         Assert.assertTrue(pageSource.contains(expected));
     }
 
-
 }
