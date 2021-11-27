@@ -115,7 +115,7 @@ public class SearchOptionsTest extends TestBase{
             Assert.assertEquals(driver.getTitle(), "Apply for a Refund : Delta Air Line");
 
         }catch(AssertionError error) {
-            SeleniumUtils.getScreenshot("FailedCancelOrRefundTabTest");
+            //SeleniumUtils.getScreenshot("FailedCancelOrRefundTabTest");
 
         }
 

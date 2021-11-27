@@ -39,6 +39,8 @@ public class LogInTest extends TestBase {
        new LogInPage().logInButtonClick();
        new LogInPage().checkbox.click();
       // Assert.assertFalse(new LogInPage().checkbox.isSelected());
+       // SoftAssert softAssert = new SoftAssert();
+        //Assert.assertTrue(new LogInPage().checkbox.isEnabled());
     }
 
     @Test
@@ -66,6 +68,28 @@ public class LogInTest extends TestBase {
         String pageSource = Driver.getDriver().getPageSource();
         Assert.assertTrue(pageSource.contains(expected));
 
+    }
+
+    @Test
+    public void forgotLoginButton(){
+
+        new LogInPage().logInButtonClick();
+        new LogInPage().scrollWindow();
+        new LogInPage().forgotLogin.click();
+        String expected =" Forgot Login";
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(expected));
+    }
+
+    @Test
+    public void forgotPasswordButton(){
+
+        new LogInPage().logInButtonClick();
+        new LogInPage().scrollWindow();
+        new LogInPage().forgotPassword.click();
+        String expected ="Reset Password ";
+        String pageSource = Driver.getDriver().getPageSource();
+        Assert.assertTrue(pageSource.contains(expected));
     }
 
 
