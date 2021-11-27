@@ -24,7 +24,7 @@ public class TestBase {
     protected static ExtentTest logger; // logging the test steps
 
 
-    @BeforeSuite
+    @BeforeSuite (alwaysRun = true)
     public void setupSuite(){
         report = new ExtentReports();
         String path = System.getProperty("user.dir") + "/target/extentReports/index.html";
@@ -36,14 +36,14 @@ public class TestBase {
 
     }
 
-    @AfterSuite
+    @AfterSuite (alwaysRun = true)
     public void afterSuite(){
         report.flush(); // writes the report into a file
     }
 
 
 
-    @BeforeMethod
+    @BeforeMethod (alwaysRun = true)
     public void setupMethod(Method method){
 
 
@@ -56,7 +56,7 @@ public class TestBase {
     }
 
 
-    @AfterMethod
+    @AfterMethod (alwaysRun = true)
     public void tearDownMethod(ITestResult testResult){
 
         if(testResult.getStatus()==ITestResult.SUCCESS){

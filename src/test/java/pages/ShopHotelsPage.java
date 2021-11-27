@@ -16,6 +16,8 @@ public class ShopHotelsPage {
    @FindBy(name = "q-destination")
    public WebElement destination;
 
+   @FindBy (xpath = "//span[.='Please tell us the destination, hotel or landmark you’re looking for']")
+public WebElement errorMsg;
    @FindBy(id ="widget-query-label-1")
    public WebElement check_in;
 
