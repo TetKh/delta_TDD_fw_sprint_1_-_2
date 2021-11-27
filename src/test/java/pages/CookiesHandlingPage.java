@@ -12,6 +12,7 @@ public class CookiesHandlingPage {
     }
 
     @FindBy(xpath = "//button[@class='cookie-close-icon float-right circle-outline']")
+
     public WebElement cookiesRejectButton;
 
     public void click() {
