@@ -22,6 +22,7 @@ public class TestBase {
     protected static ExtentReports report; // manages the entire report generation and teardown
     protected static ExtentSparkReporter htmlReporter;  // generating the html report
     protected static ExtentTest logger; // logging the test steps
+    protected static int count = 1; //
 
 
     @BeforeSuite (alwaysRun = true)
@@ -30,9 +31,6 @@ public class TestBase {
         String path = System.getProperty("user.dir") + "/target/extentReports/index.html";
         htmlReporter = new ExtentSparkReporter(path);
         report.attachReporter(htmlReporter);
-
-
-
 
     }
 
@@ -53,6 +51,9 @@ public class TestBase {
         driver.get(ConfigReader.getProperty("url"));
 
         logger = report.createTest(method.getName());
+
+        logger = report.createTest("TESTCASE " + count);
+        count++;
     }
 
 
