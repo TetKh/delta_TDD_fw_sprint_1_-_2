@@ -18,7 +18,7 @@ public class LogInTest extends TestBase {
 
     @Test(groups={"regressionTest"})
     public void verifyLogInButton() {
-     logger = report.createTest("verifyLogInButton");
+
      logger.info("Verifying LogIn Button by clicking and checking info");
         new LogInPage().logInButtonClick();
         String expected = "Log In To Delta";
@@ -30,7 +30,7 @@ public class LogInTest extends TestBase {
     @Test(groups={"regressionTest"})
     public void inccorectLogInfo(){
 
-        logger = report.createTest("inccorectLogInfo");
+
         logger.info("Verifying that incorrect LogInfo will not be allow");
         new LogInPage().logInButtonClick();
         new LogInPage().incorrectUserAndPasswordInfo();
