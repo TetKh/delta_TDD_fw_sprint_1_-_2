@@ -46,6 +46,10 @@ public WebElement errorMsg;
     public WebElement childrenInRoom;
 
 
+    //Magda
+    @FindBy(xpath = "//select[@id='qf-0q-room-0-children']//option[@value='2']")
+    public WebElement numChildrenInRoom;
+
 
     public void shopHotelButtonClick(){
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();

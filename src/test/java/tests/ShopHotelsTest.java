@@ -2,6 +2,7 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -9,6 +10,9 @@ import pages.*;
 import utilities.CSVReader;
 import utilities.Driver;
 import utilities.SeleniumUtils;
+
+import javax.sound.midi.Soundbank;
+import java.sql.SQLOutput;
 
 public class ShopHotelsTest extends TestBase{
 
@@ -88,6 +92,9 @@ public class ShopHotelsTest extends TestBase{
     String pageSource = Driver.getDriver().getPageSource();
     String roomChoice = new ShopHotelsPage().rooms.getText();
     Assert.assertTrue(pageSource.contains(roomChoice));
+
+    //System.out.println(pageSource);
+    System.out.println(new ShopHotelsPage().rooms.getText());
 }
 
 
@@ -101,6 +108,8 @@ public void selectNumOfAdultsRoom1()  {
 
     Assert.assertEquals(pageSource,numOfAdults);
 
+
+
 }
 
     @Test
@@ -109,8 +118,11 @@ public void selectNumOfAdultsRoom1()  {
         new ShopHotelsPage().adultInRoom.sendKeys("89");
         String numOfAdults = new ShopHotelsPage().adultInRoom.getText();
         String pageSource = Driver.getDriver().getPageSource();
+        System.out.println(numOfAdults);
+        Assert.assertTrue(pageSource.contains(numOfAdults));
 
-        //Assert.assertTrue(pageSource.contains(numOfAdults));
+        //Magda
+        // Assert.assertFalse(pageSource.contains(numOfAdults));
 
     }
     @Test
@@ -124,17 +136,26 @@ public void selectNumOfAdultsRoom1()  {
 
         //Assert.assertTrue(pageSource.contains(numOfAdults));
 
+        //Magda
+        //Assert.assertFalse(pageSource.contains(numOfAdults));
     }
     @Test
     public void selectNumOfChildrenRoom2(){
 
         new ShopHotelsTest().selectRooms();
-        new ShopHotelsPage().adultInRoom.sendKeys(Keys.DOWN,Keys.DOWN,Keys.ENTER);
-        String numOfAdults = new ShopHotelsPage().adultInRoom.getText();
+        //new ShopHotelsPage().adultInRoom.sendKeys(Keys.DOWN,Keys.DOWN,Keys.ENTER);
+//        String numOfAdults = new ShopHotelsPage().adultInRoom.getText();
         String pageSource = Driver.getDriver().getPageSource();
+//        System.out.println(numOfAdults);
 
       //  Assert.assertTrue(pageSource.contains(numOfAdults));
 
+
+        //Magda
+        new ShopHotelsPage().childrenInRoom.sendKeys(Keys.DOWN,Keys.DOWN,Keys.ENTER);
+        String numOfAChildren = new ShopHotelsPage().numChildrenInRoom.getText();
+        System.out.println(numOfAChildren);
+        Assert.assertTrue(pageSource.contains(numOfAChildren));
     }
 
     @Test
