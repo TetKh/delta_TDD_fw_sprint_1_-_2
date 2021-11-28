@@ -3,11 +3,8 @@
 <suite name="Regression Test">
     <!--test represents subcategory/collection of tests under a suite e.g UI tests, API tests, DB tests -->
     <test name="UI Tests">
-        <groups>
-            <run>
-                <include name = "regressionTest" />
-            </run>
-        </groups>
+
+
         <packages>
             <package name=".*"/>
         </packages>

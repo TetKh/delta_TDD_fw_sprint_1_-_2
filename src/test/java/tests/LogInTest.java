@@ -50,7 +50,7 @@ public class LogInTest extends TestBase {
        Assert.assertTrue(element.isSelected());
     }
 
-    @Test(groups={"regressionTest"})
+    @Test
     public void questionMarkOpen(){
 
         new LogInPage().logInButtonClick();
