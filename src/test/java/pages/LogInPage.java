@@ -33,6 +33,11 @@ public class LogInPage {
     @FindBy(xpath = "//label[@for='persistentLogin_CheckBox']")
     public WebElement checkbox;
 
+    @FindBy(xpath = "//input[@type='checkbox']")
+    public WebElement checkboxChecked;
+
+
+
 
     @FindBy(xpath = "//a[@class='persistent-login-help icon-help circle-outline']")
     public WebElement questionMark;
@@ -44,7 +49,7 @@ public class LogInPage {
 //            //"h2[.='Keep Me Logged In']")
 //    public WebElement textFromQuestionMark;
 //
-     @FindBy(xpath = "//a[@class='btn btn-secondary-cta btn-block btn-default']")
+     @FindBy(xpath = "//a [@href='/profile/enrolllanding.action']")
      public WebElement joinSkyMiles;
 
     @FindBy(xpath = "//a[@ href='/user-login/forgotLogin']")
@@ -67,11 +72,11 @@ public class LogInPage {
         actions.click(passwordRow).sendKeys(ConfigReader.getProperty("invalidPassword")).sendKeys(Keys.ENTER).perform();
 
     }
-    public void scrollWindow(){
-
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        js.executeScript("window.scrollBy(0,700)", "");
-    }
+//    public void scrollWindow(){
+//
+//        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+//        js.executeScript("window.scrollBy(0,700)", "");
+    //}
 
     public void joinSkyMilesButton() {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
