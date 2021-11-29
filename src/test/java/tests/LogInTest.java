@@ -97,5 +97,4 @@ public class LogInTest extends TestBase {
         String pageSource = Driver.getDriver().getPageSource();
         Assert.assertTrue(pageSource.contains(expected));
     }
-
 }

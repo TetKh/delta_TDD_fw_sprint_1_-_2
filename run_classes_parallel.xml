@@ -10,6 +10,7 @@
             <class name="tests.MainPageTest"/>
             <class name="tests.SignUpButtonTest"/>
             <class name="tests.ShopHotelsTest"/>
+            <class name="tests.LogInTest"/>
 
 
         </classes>
