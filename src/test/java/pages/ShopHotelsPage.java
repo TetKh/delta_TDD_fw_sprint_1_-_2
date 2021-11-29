@@ -1,9 +1,14 @@
 package pages;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.DataProvider;
+import utilities.CSVReader;
+import utilities.ConfigReader;
 import utilities.Driver;
 
 public class ShopHotelsPage {
@@ -34,6 +39,9 @@ public WebElement errorMsg;
     public WebElement num_nights;
 
     @FindBy (xpath = "//select[@id='qf-0q-compact-occupancy']")
+    public WebElement roomsOption;
+
+    @FindBy(xpath = "//select[@name='q-rooms']")
     public WebElement rooms;
 
     @FindBy (xpath = "//button[@class='cta cta-strong']")
@@ -42,13 +50,11 @@ public WebElement errorMsg;
     @FindBy (xpath = "//select[@name='q-room-0-adults']")
     public WebElement adultInRoom;
 
+
     @FindBy (xpath = "//select[@name='q-room-0-children']")
     public WebElement childrenInRoom;
 
 
-    //Magda
-    @FindBy(xpath = "//select[@id='qf-0q-room-0-children']//option[@value='2']")
-    public WebElement numChildrenInRoom;
 
 
     public void shopHotelButtonClick(){
@@ -60,6 +66,8 @@ public WebElement errorMsg;
     public void searchButtonClick(){
         new ShopHotelsPage().searchButton.click();
     }
+
+
 
 
 

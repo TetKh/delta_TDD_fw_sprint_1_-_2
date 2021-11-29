@@ -58,6 +58,7 @@ public class LogInPage {
     @FindBy(xpath = "//div[@class = 'd-flex flex-row forgotDiv']//a[@href='javascript:void(0);']")
     public WebElement forgotPassword;
 
+
     public void logInButtonClick() {
         new LogInPage().logInButton.click();
 

@@ -26,14 +26,14 @@ public class VacationDealsTest extends TestBase{
 
     }
 
-    @Test (groups={"smokeTest"})
-    public void verifyJoinSkyMilesLink() {
-
-        new VacationDealPage().vacationDealsButtonClick();
-        Assert.assertTrue(new VacationDealPage().joinSkyMiles_forfree.isDisplayed());
-        System.out.println(new VacationDealPage().joinSkyMiles_forfree.getText());
-
-    }
+//    @Test (groups={"smokeTest"})
+//    public void verifyJoinSkyMilesLink() {
+//
+//        new VacationDealPage().vacationDealsButtonClick();
+//        Assert.assertTrue(new VacationDealPage().joinSkyMiles_forfree.isDisplayed());
+//        System.out.println(new VacationDealPage().joinSkyMiles_forfree.getText());
+//
+//    }
 
 
 

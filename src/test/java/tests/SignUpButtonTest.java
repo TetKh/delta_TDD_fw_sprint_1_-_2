@@ -234,6 +234,7 @@ public class SignUpButtonTest extends TestBase {
         new ContactInfoPage().countryRegionCode.sendKeys(Keys.ENTER);
         String answer = new ContactInfoPage().countryRegion.getText();
         String pageSource = driver.getPageSource();
+        System.out.println(answer);
         Assert.assertTrue(pageSource.contains(answer));
 
 
