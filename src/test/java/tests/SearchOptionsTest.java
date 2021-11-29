@@ -21,8 +21,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 
 public class SearchOptionsTest extends TestBase{
+    @Test(groups={"smokeTest"})
 
-    @Test
     public void verifySearchOption1() {
         new SearchOptionsPage().searchOption1.click();
         SoftAssert softAssert = new SoftAssert();

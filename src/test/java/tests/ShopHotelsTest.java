@@ -1,7 +1,5 @@
 package tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -12,8 +10,6 @@ import utilities.CSVReader;
 import utilities.Driver;
 import utilities.SeleniumUtils;
 
-import javax.sound.midi.Soundbank;
-import java.sql.SQLOutput;
 
 public class ShopHotelsTest extends TestBase{
 
@@ -60,7 +56,6 @@ public class ShopHotelsTest extends TestBase{
         String emptyDestination = new ShopHotelsPage().errorMsg.getText();
 
         Assert.assertTrue(pageSource.contains(emptyDestination));
-
 
     }
 

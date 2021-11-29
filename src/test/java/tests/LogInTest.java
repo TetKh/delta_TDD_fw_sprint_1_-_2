@@ -16,32 +16,33 @@ import java.util.Collections;
 
 public class LogInTest extends TestBase {
 
-    @Test(groups={"regressionTest"})
+    @Test
     public void verifyLogInButton() {
 
      logger.info("Verifying LogIn Button by clicking and checking info");
+
         new LogInPage().logInButtonClick();
         String expected = "Log In To Delta";
         String pageSource = Driver.getDriver().getPageSource();
-     Assert.assertTrue(pageSource.contains(expected));
+        Assert.assertTrue(pageSource.contains(expected));
      logger.pass("Test passed");
     }
 
-    @Test(groups={"regressionTest"})
+    @Test
     public void inccorectLogInfo(){
 
 
         logger.info("Verifying that incorrect LogInfo will not be allow");
         new LogInPage().logInButtonClick();
         new LogInPage().incorrectUserAndPasswordInfo();
-        String expected ="please correct the 2 items indicated";
+        String expected ="please correct the 2 items indicated.";
         String actual= new LogInPage().errorMessage.getText();
         Assert.assertEquals(actual,expected);
         logger.pass("Test passed");
 
     }
 
-    @Test(groups={"regressionTest"})
+    @Test
     public void checkBox(){
 
        new LogInPage().logInButtonClick();
@@ -65,21 +66,21 @@ public class LogInTest extends TestBase {
 
     }
 
-     @Test(groups={"regressionTest"})
+     @Test
     public void skyMilesButton(){
 
         new LogInPage().logInButtonClick();
        // new LogInPage().scrollWindow();
         // SeleniumUtils.scroll(0,700);
          //SeleniumUtils.jsClick(new LogInPage().joinSkyMiles);
-        new LogInPage().joinSkyMilesButton();
+       // new LogInPage().joinSkyMilesButton();
         String expected ="Join SkyMiles";
         String pageSource = Driver.getDriver().getPageSource();
         Assert.assertTrue(pageSource.contains(expected));
 
     }
 
-    @Test(groups={"regressionTest"})
+    @Test
     public void forgotLoginButton(){
 
         new LogInPage().logInButtonClick();
@@ -91,7 +92,7 @@ public class LogInTest extends TestBase {
         Assert.assertTrue(pageSource.contains(expected));
     }
 
-    @Test(groups={"regressionTest"})
+    @Test
     public void forgotPasswordButton(){
 
         new LogInPage().logInButtonClick();

@@ -17,7 +17,7 @@ import java.util.List;
 public class SignUpButtonTest extends TestBase {
 
 
-    @Test(groups = {"smokeTest"})
+
     public void SingUpButtonTest() {
 
         new SingUpButtonPage().signButtonClick();
