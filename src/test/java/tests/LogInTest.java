@@ -16,7 +16,7 @@ import java.util.Collections;
 
 public class LogInTest extends TestBase {
 
-    @Test(groups={"smokeTest"})
+    @Test(groups={"regressionTest"})
     public void verifyLogInButton() {
 
      logger.info("Verifying LogIn Button by clicking and checking info");
@@ -27,7 +27,7 @@ public class LogInTest extends TestBase {
      logger.pass("Test passed");
     }
 
-    @Test
+    @Test(groups={"regressionTest"})
     public void inccorectLogInfo(){
 
 
@@ -41,7 +41,7 @@ public class LogInTest extends TestBase {
 
     }
 
-    @Test
+    @Test(groups={"regressionTest"})
     public void checkBox(){
 
        new LogInPage().logInButtonClick();
@@ -65,7 +65,7 @@ public class LogInTest extends TestBase {
 
     }
 
-     @Test
+     @Test(groups={"regressionTest"})
     public void skyMilesButton(){
 
         new LogInPage().logInButtonClick();
@@ -79,7 +79,7 @@ public class LogInTest extends TestBase {
 
     }
 
-    @Test
+    @Test(groups={"regressionTest"})
     public void forgotLoginButton(){
 
         new LogInPage().logInButtonClick();
@@ -91,7 +91,7 @@ public class LogInTest extends TestBase {
         Assert.assertTrue(pageSource.contains(expected));
     }
 
-    @Test
+    @Test(groups={"regressionTest"})
     public void forgotPasswordButton(){
 
         new LogInPage().logInButtonClick();

@@ -8,11 +8,8 @@
         <classes>
 
             <class name="tests.MainPageTest"/>
+            <class name="tests.SignUpButtonTest"/>
             <class name="tests.ShopHotelsTest"/>
-            <class name="tests.LogInTest"/>
-            <class name="tests.HelpService_Tests"/>
-            <class name="tests.SearchOptionsTest"/>
-            <class name="tests.VacationDealsTest"/>
 
 
         </classes>

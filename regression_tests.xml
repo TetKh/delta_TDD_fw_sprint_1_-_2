@@ -4,7 +4,6 @@
     <!--test represents subcategory/collection of tests under a suite e.g UI tests, API tests, DB tests -->
     <test name="UI Tests">
 
-
         <packages>
             <package name=".*"/>
         </packages>

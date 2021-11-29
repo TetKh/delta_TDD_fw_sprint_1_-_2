@@ -73,14 +73,6 @@ public class LogInPage {
         actions.click(passwordRow).sendKeys(ConfigReader.getProperty("invalidPassword")).sendKeys(Keys.ENTER).perform();
 
     }
-//    public void scrollWindow(){
-//
-//        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-//        js.executeScript("window.scrollBy(0,700)", "");
-    //}
 
-    public void joinSkyMilesButton() {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        js.executeScript("arguments[0].click()", new LogInPage().joinSkyMiles);
     }
-}
+
