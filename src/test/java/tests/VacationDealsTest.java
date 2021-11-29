@@ -10,26 +10,46 @@ import utilities.CSVReader;
 import utilities.Driver;
 import utilities.SeleniumUtils;
 
+import static utilities.SeleniumUtils.*;
+
 public class VacationDealsTest extends TestBase{
 
 
 
 
     @Test (groups={"smokeTest"})
-
     public void verifyVacationDealsButton() {
 
         new VacationDealPage().vacationDealsButtonClick();
         Assert.assertTrue(new VacationDealPage().vacationDealsButton.isDisplayed());
         System.out.println(new VacationDealPage().vacationDealsButton.getText());
-        SeleniumUtils.switchToWindow("Delta - Deals & Discounts for Hotel Reservations from Luxury Hotels to Budget Accommodations");
+        System.out.println(Driver.getDriver().getTitle());
+        switchToWindow("Airline Tickets & Flights: Book Direct with Delta Air Lines - Official Site");
 
     }
 
+    @Test
+    public void VacationDealsButton() {
+        VacationDealPage button = new VacationDealPage();
+        button.vacationDealsButtonClick();
+        Assert.assertEquals(Driver.getDriver().getTitle(), "Airline Tickets & Flights: Book Direct with Delta Air Lines - Official Site");
+
+    }
+
+    @Test
+    public void SkyMiles_Button() {
+        VacationDealPage button = new VacationDealPage();
+        button.vacationDealsButtonClick();
+        System.out.println(new VacationDealPage().joinSkyMiles_forfree.getText());
+       // Assert.assertTrue();
+
+    }
+
+
     @Test (groups={"smokeTest"})
     public void verifyJoinSkyMilesLink() {
-
         new VacationDealPage().vacationDealsButtonClick();
+        switchToWindow("Airline Tickets & Flights: Book Direct with Delta Air Lines - Official Site");
         Assert.assertTrue(new VacationDealPage().joinSkyMiles_forfree.isDisplayed());
         System.out.println(new VacationDealPage().joinSkyMiles_forfree.getText());
 

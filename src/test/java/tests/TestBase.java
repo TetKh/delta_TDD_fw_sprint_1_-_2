@@ -52,8 +52,8 @@ public class TestBase {
 
         logger = report.createTest(method.getName());
 
-        logger = report.createTest("TESTCASE " + count);
-        count++;
+//        logger = report.createTest("TESTCASE " + count);
+//        count++;
     }
 
 

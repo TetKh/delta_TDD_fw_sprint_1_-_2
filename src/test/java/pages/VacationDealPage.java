@@ -13,7 +13,7 @@ public class VacationDealPage {
     @FindBy(linkText = "VACATION DEALS")
     public WebElement vacationDealsButton;
 
-    @FindBy(xpath = " href=\"https://www.joinskymiles.com/?code=DLV\"")
+    @FindBy(linkText = "Join for free today.")
     public WebElement joinSkyMiles_forfree;
 
 
